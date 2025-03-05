@@ -1,13 +1,16 @@
-# React + TypeScript + Vite Template
+# What Goes Where
 
-This is a simple template used to quickly get started on a project.
+Project description
 
-It includes setup for:
+## Getting started
+
+1. Install dependencies: `npm install`
+2. Run server: `npm run dev`
+3. Go to [localhost:5173](http://localhost:5173/)
+
+## Tools
+
 - Routing via react-browser-dom
-- Styling via styled-modules
-- Basic file structure
-- Absolute imports
-- React Query
-- Basic Context Provider
-
-
+- Styling via styled-modules (can change to CSS)
+- React Query (can remove if we are not making API calls)
+- React Context for client side state management (can remove if we are not using it)
