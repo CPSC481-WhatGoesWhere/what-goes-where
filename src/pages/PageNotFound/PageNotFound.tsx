@@ -1,22 +1,19 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
+// PageNotFound.tsx
+
+import { Link } from "react-router-dom";
+import styles from "./PageNotFound.module.css";
+import logo from "../../assets/waste-bins-medium.png"
+
 
 function PageNotFound() {
   return (
-    <Container>
+    <div className={styles.container}>
+      <img alt={'bins'} src={logo}></img>
       <h1>Uh-oh</h1>
-      <p>Page not found 😔</p>
+      <p>Page not found</p>
       <Link to="/">Go back home</Link>
-    </Container>
+    </div>
   );
 }
 
