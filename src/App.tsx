@@ -1,16 +1,18 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import AppRouter from "./router/AppRouter";
-import { UserContextProvider } from "./context/UserContext";
 
-// Create a client
+// App.tsx
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./router/AppRouter";
+
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <UserContextProvider>
-        <AppRouter />
-      </UserContextProvider>
+        <BrowserRouter>
+          <AppRouter />
+        </BrowserRouter>
     </QueryClientProvider>
   );
 }

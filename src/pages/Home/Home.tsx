@@ -1,19 +1,14 @@
-import styled from "styled-components";
 
-const Container = styled.section`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-x: hidden;
-`;
+// Home.tsx
+
+import styles from "./Home.module.css";
+
 
 function Home() {
   return (
-    <Container>
+    <div className={styles.container}>
       <h1>Home</h1>
-    </Container>
+    </div>
   );
 }
 

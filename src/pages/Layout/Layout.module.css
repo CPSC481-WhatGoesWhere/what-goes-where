@@ -1,0 +1,108 @@
+
+
+/* Layout.module.css */
+
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS Variables */
+:root {
+  /* Colors */
+  --color-primary: #4a90e2;
+  --color-secondary: #50e3c2;
+  --color-background: #f8f8f8;
+  --color-text: #333;
+  --color-header-bg: #ffffff;
+  --color-footer-bg: #ffffff;
+  
+  /* Typography */
+  --font-family-base: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-size-base: 16px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+/* Global Styles */
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
+  /* Remove default margin/padding to allow container to truly fill the viewport */
+}
+
+/* Container takes full viewport size and arranges children in a column */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Header: fixed percentage height (adjust as needed) */
+.header {
+  background-color: var(--color-header-bg);
+  height: 10vh; /* 15% of viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding: var(--spacing-md);
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+/* Main: fills remaining space */
+.main {
+  display: flex;
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer: fixed height (adjust as needed) */
+.footer {
+  background-color: var(--color-footer-bg);
+  height: 5vh; /* 10% of viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #e0e0e0;
+  padding: var(--spacing-md);
+  font-size: 0.875rem;
+  color: #777;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header,
+  .footer {
+    padding: var(--spacing-sm);
+  }
+
+  .main {
+    padding: var(--spacing-md);
+  }
+}
