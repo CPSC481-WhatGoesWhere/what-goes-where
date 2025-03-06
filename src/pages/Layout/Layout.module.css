@@ -11,10 +11,14 @@
 }
 
 /* CSS Variables */
-:root {
+:global(:root) {
   /* Colors */
-  --color-primary: #4a90e2;
-  --color-secondary: #50e3c2;
+  --color-primary: #01d0fb;
+  --color-primary-dark: #08a9f1;
+  --color-secondary: #97d729;
+  --color-secondary-dark: #81b823;
+  --color-accent: #fe9738;
+  --color-accent-dark: #fd6930;
   --color-background: #f8f8f8;
   --color-text: #333;
   --color-header-bg: #ffffff;
@@ -58,16 +62,71 @@ body {
   background-color: var(--color-header-bg);
   height: 10vh; /* 15% of viewport height */
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
   border-bottom: 1px solid #e0e0e0;
   padding: var(--spacing-md);
+  gap: 20px;
 }
 
 .header h1 {
-  font-size: 2rem;
   font-weight: var(--font-weight-bold);
   color: var(--color-primary);
+  white-space: nowrap;
+  font-size: clamp(0.5rem, 5vw, 2rem);
+}
+
+/* Navigation Button Container */
+.buttonContainer {
+  display: flex;
+  flex: 1;
+  justify-content: end;
+  gap: var(--spacing-sm);
+  margin-left: var(--spacing-md);
+  flex-wrap: nowrap;
+}
+
+/* Navigation Link Styles */
+.buttonContainer a {
+  text-decoration: none;
+  color: var(--color-text);
+  padding: var(--spacing-xs) var(--spacing-md);
+  transition: border-color 0.3s ease, transform 0.1s linear;
+  white-space: nowrap;
+  font-size: 1rem; /* or use a responsive value */
+  border-radius: 10px;
+  border: 1px solid transparent;
+  margin: 0;
+}
+
+/* Focus state: reset transform to default */
+.buttonContainer a:focus {
+  transition: border-color 0.3s ease, transform 0.1s linear;
+  border-color: var(--color-primary);
+  transform: scale(1);
+}
+
+/* Hover state: slight scale up */
+.buttonContainer a:hover {
+  transition: border-color 0.3s ease, transform 0.1s linear;
+  border-color: var(--color-primary);
+  transform: scale(1);
+}
+
+/* Active state: scale down for click feedback */
+.buttonContainer a:active {
+  transition: border-color 0.3s ease, transform 0.1s linear;
+  border-color: var(--color-primary);
+  transform: scale(0.9);
+}
+
+/* Active link style remains for persistent active state */
+.active {
+  transition: border-color 0.3s ease, transform 0.1s linear;
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  transform: scale(1.05);
 }
 
 /* Main: fills remaining space */
