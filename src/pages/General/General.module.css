@@ -3,7 +3,31 @@
 /* MetalDisposal.module.css */
 
 
-.container {
+/* 
+  Below is an exemple of how to set-up css for this module:
+
+    - The css class ".exemple {}" is an exemple class.
+      If it were to be used it would have to be used in 
+      a manner like so "<div className={styles.exemple}>".
+
+    - You can see how to set-up the variable, the variables
+      can be found in the @/pages/Layout/Layout.module.css
+      in the ":global(:root) {...}" class.
+      You may add more variables there, but remeber that 
+      changing them will alter things globally.
+
+    - Make sure that you use a lot of components in the Page,
+      since its a Page rather than a Component, this css file 
+      should be pretty bear of things and only hold a few things.
+      Components have lots of styling and require lots of css
+      but Pages mainly hold components.
+
+    - Make sure that none of the css classes in this css stylesheet
+      are to be used for Components, this css stylesheet is for the 
+      Page only. Css classes for components can be stored in their 
+      respective css stylesheets.
+ */
+.exemple {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
@@ -15,5 +39,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   overflow-x: hidden;
+  overflow-y: auto;
 }

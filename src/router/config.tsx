@@ -29,11 +29,11 @@ export const ROUTES_CONFIG = [
       {
         path: "metal-disposal", // URL: /metal-disposal
         element: <MetalDisposal />,
+      },
+      {
+        path: "*", // 404 route under Layout
+        element: <PageNotFound />,
       }
-    ],
-  },
-  {
-    path: "*",
-    element: <PageNotFound />,
-  },
+    ]
+  }
 ];

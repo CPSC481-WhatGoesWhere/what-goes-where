@@ -15,39 +15,48 @@
   text-decoration: none;
   color: var(--color-text);
   padding: var(--spacing-xs) var(--spacing-md);
-  transition: border-color 0.3s ease, transform 0.1s linear;
+  transition: 
+    border-color 0.3s ease, 
+    color 0.3s ease, 
+    transform 0.1s linear,
+    box-shadow 0.1s linear,
+    background-color 0.3s ease ;
+  ;
   white-space: nowrap;
-  font-size: 1rem; /* or use a responsive value */
-  border-radius: 10px;
-  border: 1px solid transparent;
+  font-size: var(--font-size-base); /* or use a responsive value */
+  border-radius: var(--border-radius-md);
+  border: var(--border-transparent);
   margin: 0;
 }
 
 /* Focus state: reset transform to default */
 .buttonContainer a:focus {
-  transition: border-color 0.3s ease, transform 0.1s linear;
   border-color: var(--color-primary);
   transform: scale(1);
 }
 
 /* Hover state: slight scale up */
 .buttonContainer a:hover {
-  transition: border-color 0.3s ease, transform 0.1s linear;
   border-color: var(--color-primary);
   transform: scale(1);
 }
 
 /* Active state: scale down for click feedback */
 .buttonContainer a:active {
-  transition: border-color 0.3s ease, transform 0.1s linear;
   border-color: var(--color-primary);
   transform: scale(0.9);
 }
 
 /* Active link style remains for persistent active state */
-.active {
-  transition: border-color 0.3s ease, transform 0.1s linear;
+.buttonContainer a.active {
   border-color: var(--color-primary);
   background-color: var(--color-primary);
-  transform: scale(1.05);
+  transform: scale(1.1);
+  color: white;
+}
+
+/* Hover state: slight scale up */
+.buttonContainer a:hover.active {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
 }

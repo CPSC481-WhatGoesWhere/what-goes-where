@@ -1,0 +1,50 @@
+
+
+/* Block.module.css */
+
+
+/* 
+  Here is some information on how to use css for components:
+
+    - The css class ".exemple {}" is an exemple.
+      If it were to be used it would have to be used in 
+      a manner like so "<div className={styles.exemple}>".
+
+    - You can set-up and use global variables, the variables
+      can be found in the @/pages/Layout/Layout.module.css 
+      in the ":global(:root) {...}" class. You may add more 
+      variables there, but remeber that changing them will 
+      alter things globally.
+
+    - Given that this is a Component rather than a Page, this 
+      css stylesheet is expected to hold all (or most) of the 
+      css classes nessecary for the component.
+
+    - In the event that this Component has many subcomponents, 
+      you may chose to hold the css classes for the subcomponents 
+      in this css stylesheet or to have their own css stylesheets.
+      This is dependent on how many classes and how complicated 
+      they are. Do whatever will have the clearest outcome to an 
+      outsider trying to read this code.
+ */
+
+
+.blockContainer {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  background-color: white;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border: var(--border-solid-sm);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow);
+  max-width: 400px;
+  min-width: 200px;
+
+}

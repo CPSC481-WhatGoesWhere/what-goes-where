@@ -1,0 +1,50 @@
+
+
+/* Title.module.css */
+
+
+/* 
+  Here is some information on how to use css for components:
+
+    - The css class ".exemple {}" is an exemple.
+      If it were to be used it would have to be used in 
+      a manner like so "<div className={styles.exemple}>".
+
+    - You can set-up and use global variables, the variables
+      can be found in the @/pages/Layout/Layout.module.css 
+      in the ":global(:root) {...}" class. You may add more 
+      variables there, but remeber that changing them will 
+      alter things globally.
+
+    - Given that this is a Component rather than a Page, this 
+      css stylesheet is expected to hold all (or most) of the 
+      css classes nessecary for the component.
+
+    - In the event that this Component has many subcomponents, 
+      you may chose to hold the css classes for the subcomponents 
+      in this css stylesheet or to have their own css stylesheets.
+      This is dependent on how many classes and how complicated 
+      they are. Do whatever will have the clearest outcome to an 
+      outsider trying to read this code.
+ */
+
+
+.titleContainer {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  background-color: var(--color-background-primary);
+  display: flex;
+  flex: 1;
+  gap: var(--spacing-md);
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-none);
+  padding: var(--spacing-none);
+  text-align: center;
+
+}

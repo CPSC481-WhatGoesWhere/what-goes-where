@@ -1,14 +1,20 @@
 
 // General.tsx
 
-import styles from "./General.module.css";
+import FlexBackGround from "@/Components/FlexBackGround";
+import Block from "@/Components/Block";
+import FlexRow from "@/Components/FlexRow";
 
 
 function General() {
   return (
-    <div className={styles.container}>
-      <h1>General</h1>
-    </div>
+    <FlexBackGround>
+      <FlexRow>
+        <Block>
+          General
+        </Block>
+      </FlexRow>
+    </FlexBackGround>
   );
 }
 
