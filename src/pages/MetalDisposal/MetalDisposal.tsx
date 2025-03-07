@@ -3,14 +3,17 @@
 
 import Block from "@/Components/Block";
 import FlexBackGround from "@/Components/FlexBackGround";
+import FlexRow from "@/Components/FlexRow";
 
 
 function MetalDisposal() {
   return (
     <FlexBackGround>
-      <Block>
-        MetalDisposal
-      </Block>
+      <FlexRow>
+        <Block>
+          MetalDisposal 
+        </Block>
+      </FlexRow>
     </FlexBackGround>
   );
 }

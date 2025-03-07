@@ -3,14 +3,17 @@
 
 import FlexBackGround from "@/Components/FlexBackGround";
 import Block from "@/Components/Block";
+import FlexRow from "@/Components/FlexRow";
 
 
 function BottleDepot() {
   return (
     <FlexBackGround>
-      <Block>
-        BottleDepot
-      </Block>
+      <FlexRow>
+        <Block>
+          BottleDepot
+        </Block>
+      </FlexRow>
     </FlexBackGround>
   );
 }

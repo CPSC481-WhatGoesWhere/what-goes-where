@@ -1,6 +1,6 @@
 
 
-/* Block.module.css */
+/* FlexRow.module.css */
 
 
 /* 
@@ -29,20 +29,20 @@
  */
 
 
-.blockContainer {
+.flexRowContainer {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   color: var(--color-text);
-  background-color: white;
-  line-height: 1.6;
+  background-color: var(--color-background-outlet);
   display: flex;
-  flex-direction: column;
+  flex: 1;
+  gap: var(--spacing-md);
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  overflow: hidden;
-  border: var(--border-solid-sm);
-  padding: var(--spacing-md);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--box-shadow);
-
+  justify-content: center;
+  border: var(--border-none);
+  padding: var(--spacing-none);
 }

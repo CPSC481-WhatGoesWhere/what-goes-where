@@ -1,46 +1,24 @@
 
-// Block.tsx
+// FlexRow.tsx
 
 import React, { ReactNode, CSSProperties } from "react";
-import styles from "./Block.module.css";
+import styles from "./FlexRow.module.css";
 
-interface BlockProps {
+interface FlexRowProps {
   children: ReactNode;
-  width?: string;
-  height?: string;
-  minWidth?: string;
-  maxWidth?: string;
-  minHeight?: string;
-  maxHeight?: string;
   style?: CSSProperties;
 }
 
-const Block: React.FC<BlockProps> = ({
+const FlexRow: React.FC<FlexRowProps> = ({
   children,
-  width,
-  height,
-  minWidth,
-  maxWidth,
-  minHeight,
-  maxHeight,
   style,
 }) => {
 
-  const blockStyles: CSSProperties = {
-    width,
-    height,
-    minWidth,
-    maxWidth,
-    minHeight,
-    maxHeight,
-    ...style,
-  };
-
   return (
-    <div className={styles.blockContainer} style={blockStyles}>
+    <div className={styles.flexRowContainer} style={style}>
       {children}
     </div>
   );
 };
 
-export default Block;
+export default FlexRow;

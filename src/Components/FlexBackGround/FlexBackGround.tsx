@@ -6,21 +6,17 @@ import React, { ReactNode, CSSProperties } from "react";
 
 interface FlexBackGroundProps {
   children: ReactNode;
-  width?: string;
-  height?: string;
-  minWidth?: string;
-  maxWidth?: string;
-  minHeight?: string;
-  maxHeight?: string;
   style?: CSSProperties;
 }
 
 const FlexBackGround: React.FC<FlexBackGroundProps> = ({ 
-  children
+  children,
+  style
 }) => {
 
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={style}>
       {children}
     </div>
   );

@@ -12,6 +12,7 @@
 
 /* CSS Variables */
 :global(:root) {
+
   /* Colors */
   --color-primary: #01d0fb;
   --color-primary-dark: #08a9f1;
@@ -19,17 +20,26 @@
   --color-secondary-dark: #81b823;
   --color-accent: #fe9738;
   --color-accent-dark: #fd6930;
-  --color-background: #f8f8f8;
+
+  --color-background-outlet: #f8f8f8;
+  --color-background-primary: #ffffff;
+
   --color-text: #333;
   --color-text-light: #777;
-  --color-header-bg: #ffffff;
-  --color-footer-bg: #ffffff;
   
+
   /* Typography */
   --font-family-base: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-size-base: 16px;
+  --font-size-xs: 0.6rem;
+  --font-size-sm: 0.8rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.2rem;
+  --font-size-xl: 1.4rem;
+  --font-size-xxl: 1.6rem;
   --font-weight-normal: 400;
   --font-weight-bold: 700;
+  --font-line-height: 1.6;
+
 
   /* Borders */
   --border-width-xs: 1px;
@@ -37,7 +47,11 @@
   --border-width-md: 3px;
   --border-width-lg: 4px;
   --border-width-xl: 6px;
+
   --border-solid-sm: 1px solid #e0e0e0;
+  --border-transparent: 1px solid transparent;
+  --border-none: none;
+
   --border-radius-xs: 2px;
   --border-radius-sm: 5px;
   --border-radius-md: 10px;
@@ -45,10 +59,15 @@
   --border-radius-xl: 20px;
   --border-radius-xxl: 30px;
   --border-radius-xxxl: 40px;
-  --box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.25);
+
+  --box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
+  --box-shadow-inset: 0px 2px 4px 1px rgba(0, 0, 0, 0.25) inset;
+  --box-shadow-none: none;
 
 
   /* Spacing */
+  --spacing-none: 0px;
+
   --spacing-xs: 4px;
   --spacing-sm: 8px;
   --spacing-md: 16px;
@@ -62,7 +81,7 @@ body {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   color: var(--color-text);
-  background-color: var(--color-background);
+  background-color: var(--color-background-outlet);
   line-height: 1.6;
   /* Remove default margin/padding to allow container to truly fill the viewport */
 }
@@ -77,7 +96,7 @@ body {
 
 /* Header: fixed percentage height (adjust as needed) */
 .header {
-  background-color: var(--color-header-bg);
+  background-color: var(--color-background-primary);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -160,7 +179,7 @@ body {
 
 /* Footer: fixed height (adjust as needed) */
 .footer {
-  background-color: var(--color-footer-bg);
+  background-color: var(--color-background-primary);
   display: flex;
   align-items: center;
   justify-content: center;
