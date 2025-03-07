@@ -1,14 +1,17 @@
 
 // Home.tsx
 
-import styles from "./Home.module.css";
+import Block from "@/Components/Block/Block";
+import FlexBackGround from "@/Components/FlexBackGround";
 
 
 function Home() {
   return (
-    <div className={styles.container}>
-      <h1>Home</h1>
-    </div>
+    <FlexBackGround>
+      <Block minWidth="600px">
+        Block
+      </Block>
+    </FlexBackGround>
   );
 }
 

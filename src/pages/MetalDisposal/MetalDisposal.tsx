@@ -1,14 +1,17 @@
 
 // MetalDisposal.tsx
 
-import styles from "./MetalDisposal.module.css";
+import Block from "@/Components/Block";
+import FlexBackGround from "@/Components/FlexBackGround";
 
 
 function MetalDisposal() {
   return (
-    <div className={styles.container}>
-      <h1>MetalDisposal</h1>
-    </div>
+    <FlexBackGround>
+      <Block>
+        MetalDisposal
+      </Block>
+    </FlexBackGround>
   );
 }
 

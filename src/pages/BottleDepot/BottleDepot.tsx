@@ -1,14 +1,17 @@
 
 // BottleDepot.tsx
 
-import styles from "./BottleDepot.module.css";
+import FlexBackGround from "@/Components/FlexBackGround";
+import Block from "@/Components/Block";
 
 
 function BottleDepot() {
   return (
-    <div className={styles.container}>
-      <h1>BottleDepot</h1>
-    </div>
+    <FlexBackGround>
+      <Block>
+        BottleDepot
+      </Block>
+    </FlexBackGround>
   );
 }
 

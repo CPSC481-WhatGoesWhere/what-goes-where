@@ -21,6 +21,7 @@
   --color-accent-dark: #fd6930;
   --color-background: #f8f8f8;
   --color-text: #333;
+  --color-text-light: #777;
   --color-header-bg: #ffffff;
   --color-footer-bg: #ffffff;
   
@@ -29,6 +30,23 @@
   --font-size-base: 16px;
   --font-weight-normal: 400;
   --font-weight-bold: 700;
+
+  /* Borders */
+  --border-width-xs: 1px;
+  --border-width-sm: 2px;
+  --border-width-md: 3px;
+  --border-width-lg: 4px;
+  --border-width-xl: 6px;
+  --border-solid-sm: 1px solid #e0e0e0;
+  --border-radius-xs: 2px;
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 15px;
+  --border-radius-xl: 20px;
+  --border-radius-xxl: 30px;
+  --border-radius-xxxl: 40px;
+  --box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, 0.25);
+
 
   /* Spacing */
   --spacing-xs: 4px;
@@ -60,13 +78,12 @@ body {
 /* Header: fixed percentage height (adjust as needed) */
 .header {
   background-color: var(--color-header-bg);
-  height: 10vh; /* 15% of viewport height */
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  border-bottom: 1px solid #e0e0e0;
-  padding: var(--spacing-md);
+  border-bottom: var(--border-solid-sm);
+  padding: var(--spacing-sm);
   gap: 20px;
 }
 
@@ -144,14 +161,13 @@ body {
 /* Footer: fixed height (adjust as needed) */
 .footer {
   background-color: var(--color-footer-bg);
-  height: 5vh; /* 10% of viewport height */
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid #e0e0e0;
-  padding: var(--spacing-md);
+  border-top: var(--border-solid-sm);
+  padding: var(--spacing-sm);
   font-size: 0.875rem;
-  color: #777;
+  color: var(--color-text-light);
 }
 
 /* Responsive adjustments */
