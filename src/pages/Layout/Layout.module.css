@@ -1,7 +1,4 @@
-
-
 /* Layout.module.css */
-
 
 /* Basic Reset */
 * {
@@ -12,7 +9,6 @@
 
 /* CSS Variables */
 :global(:root) {
-
   /* Colors */
   --color-primary: #01d0fb;
   --color-primary-dark: #08a9f1;
@@ -26,10 +22,9 @@
 
   --color-text: #333;
   --color-text-light: #777;
-  
 
   /* Typography */
-  --font-family-base: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-family-base: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-size-xs: 0.6rem;
   --font-size-sm: 0.8rem;
   --font-size-base: 1rem;
@@ -39,7 +34,6 @@
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --font-line-height: 1.6;
-
 
   /* Borders */
   --border-width-xs: 1px;
@@ -63,7 +57,6 @@
   --box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.25);
   --box-shadow-inset: 0px 2px 4px 1px rgba(0, 0, 0, 0.25) inset;
   --box-shadow-none: none;
-
 
   /* Spacing */
   --spacing-none: 0px;
@@ -99,11 +92,13 @@ body {
   background-color: var(--color-background-primary);
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   flex-wrap: nowrap;
   align-items: center;
   border-bottom: var(--border-solid-sm);
   padding: var(--spacing-sm);
   gap: 20px;
+  width: 100%;
 }
 
 .header h1 {
@@ -116,7 +111,6 @@ body {
 /* Navigation Button Container */
 .buttonContainer {
   display: flex;
-  flex: 1;
   justify-content: end;
   gap: var(--spacing-sm);
   margin-left: var(--spacing-md);
@@ -199,4 +193,17 @@ body {
   .main {
     padding: var(--spacing-md);
   }
+}
+
+.Search {
+  width: 100%;
+  max-width: 400px;
+  align-self: center;
+}
+
+.Logo {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
 }

@@ -1,6 +1,4 @@
-
 // config.tsx
-
 
 import Layout from "@/pages/Layout";
 import Home from "@/pages/Home";
@@ -8,6 +6,7 @@ import BottleDepot from "@/pages/BottleDepot";
 import General from "@/pages/General";
 import MetalDisposal from "@/pages/MetalDisposal";
 import PageNotFound from "@/pages/PageNotFound";
+import ItemPage from "@/pages/ItemPage";
 
 export const ROUTES_CONFIG = [
   {
@@ -31,9 +30,13 @@ export const ROUTES_CONFIG = [
         element: <MetalDisposal />,
       },
       {
+        path: "item/:item",
+        element: <ItemPage />,
+      },
+      {
         path: "*", // 404 route under Layout
         element: <PageNotFound />,
-      }
-    ]
-  }
+      },
+    ],
+  },
 ];
