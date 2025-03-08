@@ -27,7 +27,7 @@ function SearchBar() {
 
   const handleSelect = (value: string) => {
     navigate(`/item/${value}`);
-    setQuery(value);
+    setQuery("");
   };
 
   return (
@@ -38,7 +38,7 @@ function SearchBar() {
         options={SEARCH_OPTIONS.filter((option) =>
           query
             ? option.value.toLowerCase().includes(query.toLowerCase())
-            : false
+            : true
         )}
         style={{ width: "100%" }}
         value={query || undefined}
