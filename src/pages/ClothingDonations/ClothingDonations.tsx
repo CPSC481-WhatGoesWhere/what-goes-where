@@ -1,21 +1,26 @@
 import FlexRow from "@/Components/FlexRow";
 import LocationsMap from "@/Components/LocationsMap";
 import { useState } from "react";
-import { RECYCLING_DEPOTS } from "./constants";
 import { Location } from "@/Components/LocationsMap/LocationsMap";
-import styles from "./BottleDepot.module.css";
-function BottleDepot() {
+import styles from "./ClothingDonations.module.css";
+import { CLOTHING_DONATION_CENTERS } from "./constants";
+
+function ClothingDonations() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null
   );
   return (
     <div className={styles.container}>
-      <h1>Bottles and Cans Recycling</h1>
-      <p>Recycle your empty bottles and cans for cash.</p>
-      <h4>Nearby Bottle Depots</h4>
+      <h1>Clothing Donations</h1>
+      <p>
+        Fast fashion has led to massive textile waste and pollution, but small
+        actions like donating clothes and shopping second-hand can make a big
+        difference.
+      </p>
+      <h4>Nearby Thrift Stores and Donation Centers</h4>
       <FlexRow>
         <LocationsMap
-          locations={RECYCLING_DEPOTS}
+          locations={CLOTHING_DONATION_CENTERS}
           selectedLocation={selectedLocation}
           setSelectedLocation={setSelectedLocation}
         />
@@ -24,4 +29,4 @@ function BottleDepot() {
   );
 }
 
-export default BottleDepot;
+export default ClothingDonations;
