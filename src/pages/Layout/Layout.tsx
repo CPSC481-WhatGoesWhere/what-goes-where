@@ -1,7 +1,7 @@
 // Layout.tsx
 
 import React from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import styles from "./Layout.module.css";
 import logo from "../../assets/waste-bins-medium.png";
 import NavLinks from "./NavLinks";
@@ -10,10 +10,10 @@ import { SEARCH_OPTIONS } from "./constants";
 
 function Logo() {
   return (
-    <div className={styles.Logo}>
+    <NavLink to="/" className={styles.Logo}>
       <img alt={"bins"} src={logo}></img>
       <h1>What Goes Where ?</h1>
-    </div>
+    </NavLink>
   );
 }
 

@@ -7,6 +7,7 @@ import General from "@/pages/General";
 import MetalDisposal from "@/pages/MetalDisposal";
 import PageNotFound from "@/pages/PageNotFound";
 import ItemPage from "@/pages/ItemPage";
+import ClothingDonations from "@/pages/ClothingDonations";
 
 export const ROUTES_CONFIG = [
   {
@@ -28,6 +29,10 @@ export const ROUTES_CONFIG = [
       {
         path: "metal-disposal", // URL: /metal-disposal
         element: <MetalDisposal />,
+      },
+      {
+        path: "clothing-donations", // URL: /clothing-donations
+        element: <ClothingDonations />,
       },
       {
         path: "item/:item",
