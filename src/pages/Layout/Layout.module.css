@@ -9,18 +9,26 @@
 
 /* CSS Variables */
 :global(:root) {
-  /* Colors */
-  --color-primary: #01d0fb;
-  --color-primary-dark: #08a9f1;
-  --color-secondary: #97d729;
-  --color-secondary-dark: #81b823;
+  /* Colors:
+   * BackGround, Text, Ratio
+   * #553ec2, #ffffff, 7.36:1
+   * #8a6af6, #000000, 5.47:1
+   * #fe9738, #000000, 9.7:1
+   * #fd6930, #000000, 7.24:1
+   * #2ac891, #000000, 9.77:1
+   * #169c69, #000000, 5.99:1 
+   */
+  --color-primary: #8a6af6;
+  --color-primary-dark: #553ec2;
+  --color-secondary: #2ac891;
+  --color-secondary-dark: #169c69;
   --color-accent: #fe9738;
   --color-accent-dark: #fd6930;
 
   --color-background-outlet: #f8f8f8;
   --color-background-primary: #ffffff;
 
-  --color-text: #333;
+  --color-text: #000000;
   --color-text-light: #777;
 
   /* Typography */
