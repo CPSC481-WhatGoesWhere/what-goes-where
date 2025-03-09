@@ -43,5 +43,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: var(--spacing-md);
+  padding: var(--spacing-none);
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
 }
