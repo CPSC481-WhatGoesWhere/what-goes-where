@@ -22,8 +22,8 @@ function Home() {
 
   return (
     <FlexBackGround>
-      <FlexRow>
-        <Block style={{maxWidth: "800px", minWidth: "100px", minHeight: "200px", gap: "20px"}}>
+      <FlexRow style={{minHeight: "50%"}}>
+        <Block style={{maxWidth: "60%", height: "90%", gap: "20px"}}>
           <Title>{"Got a question? Ask me anything!"}</Title>
           <TextInput
             value={chatQuestion}
@@ -33,28 +33,27 @@ function Home() {
           <Button
             dark={true}
             onClick={handleButtonClick}
-            containerStyle={{ maxWidth: "200px" }}
+            containerStyle={{ maxWidth: "50%" }}
           >
             Ask
           </Button>
         </Block>
       </FlexRow>
       <FlexRow>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
-        <Block>Block</Block>
+        <Block style={{maxWidth: "40%", height: "80%"}}>
+          Clothing Donation
+        </Block>
+        <Block style={{maxWidth: "40%", height: "80%"}}>
+          Bottle Depot
+        </Block>
+      </FlexRow>
+      <FlexRow>
+        <Block style={{maxWidth: "40%", height: "80%"}}>
+          Metal Recycling
+        </Block>
+        <Block style={{maxWidth: "40%", height: "80%"}}>
+          Junk Removal
+        </Block>
       </FlexRow>
     </FlexBackGround>
   );
