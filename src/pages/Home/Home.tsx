@@ -23,7 +23,7 @@ function Home() {
   const [chatQuestion, setChatQuestion] = useState("")
 
   const handleButtonClick = () => {
-    navigate('/')
+    navigate('/general')
   };
 
   return (
