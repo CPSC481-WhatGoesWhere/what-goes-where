@@ -13,28 +13,27 @@ function ClothingDonations() {
   );
   return (
     <FlexBackGround>
-      <FlexRow style={{flex: "none"}}>
+      <FlexRow style={{ flex: "none" }}>
         <Block>
           <div className={styles.container}>
             <h1>Clothing Donations</h1>
             <p>
-              Fast fashion has led to massive textile waste and pollution, but small
-              actions like donating clothes and shopping second-hand can make a big
-              difference.
+              Fast fashion has led to massive textile waste and pollution, but
+              small actions like donating clothes and shopping second-hand can
+              make a big difference.
             </p>
-            <h4>Nearby Thrift Stores and Donation Centers</h4>
           </div>
         </Block>
       </FlexRow>
-        <FlexRow>
-          <Block style={{height: "100%"}}>
-            <LocationsMap
-              locations={CLOTHING_DONATION_CENTERS}
-              selectedLocation={selectedLocation}
-              setSelectedLocation={setSelectedLocation}
-            />
-          </Block>
-        </FlexRow>
+      <FlexRow>
+        <Block style={{ height: "100%" }}>
+          <LocationsMap
+            locations={CLOTHING_DONATION_CENTERS}
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
+          />
+        </Block>
+      </FlexRow>
     </FlexBackGround>
   );
 }
