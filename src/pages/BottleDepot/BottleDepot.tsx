@@ -12,12 +12,17 @@ function BottleDepot() {
   );
   return (
     <FlexBackGround>
-      <div className={styles.container}>
-        <h1>Bottles and Cans Recycling</h1>
-        <p>Recycle your empty bottles and cans for cash.</p>
-        <h4>Nearby Bottle Depots</h4>
-        <FlexRow>
-          <Block>
+      <FlexRow style={{flex: "none"}}>
+        <Block>
+          <div className={styles.container}>
+            <h1>Bottles and Cans Recycling</h1>
+            <p>Recycle your empty bottles and cans for cash.</p>
+            <h4>Nearby Bottle Depots</h4>
+          </div>
+        </Block>
+      </FlexRow>
+        <FlexRow >
+          <Block style={{height: "100%"}}>
             <LocationsMap
               locations={RECYCLING_DEPOTS}
               selectedLocation={selectedLocation}
@@ -25,7 +30,6 @@ function BottleDepot() {
             />
           </Block>
         </FlexRow>
-      </div>
     </FlexBackGround>
   );
 }
