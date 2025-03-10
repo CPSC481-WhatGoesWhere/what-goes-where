@@ -36,23 +36,23 @@ function MetalDisposal() {
       </FlexRow>
       <FlexRow>
         <Block style={{ alignItems: "flex-start" }}>
-          <FlexRow
-            style={{ justifyContent: "space-between", marginBottom: "1rem" }}
-          >
+          <div style={{ marginBottom: "1rem" }}>
             <h4>Metal Recycling Depots</h4>
-            <FlexRow style={{ justifyContent: "flex-end" }}>
-              <p>Your postal code:</p>
+            <FlexRow style={{ justifyContent: "flex-end", paddingLeft: 0 }}>
+              <span>
+                Enter your postal code to find closest depots that will pay you
+                the most:
+              </span>
               <div style={{ width: "200px" }}>
                 <TextInput
                   pattern={POSTAL_CODE_REGEX_STR}
-                  title="Please enter a valid postal code"
                   className={styles.postalCodeInput}
                   value={postalCode}
                   onChange={setPostalCode}
                 />
               </div>
             </FlexRow>
-          </FlexRow>
+          </div>
           <Table
             data={getMetalDepotTableRecords(METAL_RECYCLING_DEPOTS, postalCode)}
           />
