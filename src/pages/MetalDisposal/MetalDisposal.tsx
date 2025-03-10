@@ -49,6 +49,7 @@ function MetalDisposal() {
                   className={styles.postalCodeInput}
                   value={postalCode}
                   onChange={setPostalCode}
+                  placeholder="E.g. A1A 1A1"
                 />
               </div>
             </FlexRow>
