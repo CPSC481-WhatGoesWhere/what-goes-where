@@ -14,3 +14,12 @@
   gap: 20px;
   overflow-y: auto;
 }
+
+.refundInputsContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}

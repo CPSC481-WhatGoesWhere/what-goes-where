@@ -12,7 +12,7 @@ function ClothingDonations() {
     null
   );
   return (
-    <FlexBackGround>
+    <FlexBackGround style={{ justifyContent: "flex-start", overflowY: "auto" }}>
       <FlexRow style={{ flex: "none" }}>
         <Block>
           <div className={styles.container}>
