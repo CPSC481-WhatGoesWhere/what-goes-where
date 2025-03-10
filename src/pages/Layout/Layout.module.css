@@ -104,7 +104,20 @@ body {
   flex-wrap: nowrap;
   align-items: center;
   border-bottom: var(--border-solid-sm);
-  padding: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  gap: 20px;
+  width: 100%;
+}
+
+.headerRight {
+  background-color: var(--color-background-primary);
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  flex-wrap: nowrap;
+  align-items: center;
+  border-bottom: var(--border-none);
+  padding: var(--spacing-none);
   gap: 20px;
   width: 100%;
 }
@@ -116,56 +129,6 @@ body {
   font-size: clamp(0.5rem, 5vw, 2rem);
 }
 
-/* Navigation Button Container */
-.buttonContainer {
-  display: flex;
-  justify-content: end;
-  gap: var(--spacing-sm);
-  margin-left: var(--spacing-md);
-  flex-wrap: nowrap;
-}
-
-/* Navigation Link Styles */
-.buttonContainer a {
-  text-decoration: none;
-  color: var(--color-text);
-  padding: var(--spacing-xs) var(--spacing-md);
-  transition: border-color 0.3s ease, transform 0.1s linear;
-  white-space: nowrap;
-  font-size: 1rem; /* or use a responsive value */
-  border-radius: 10px;
-  border: 1px solid transparent;
-  margin: 0;
-}
-
-/* Focus state: reset transform to default */
-.buttonContainer a:focus {
-  transition: border-color 0.3s ease, transform 0.1s linear;
-  border-color: var(--color-primary);
-  transform: scale(1);
-}
-
-/* Hover state: slight scale up */
-.buttonContainer a:hover {
-  transition: border-color 0.3s ease, transform 0.1s linear;
-  border-color: var(--color-primary);
-  transform: scale(1);
-}
-
-/* Active state: scale down for click feedback */
-.buttonContainer a:active {
-  transition: border-color 0.3s ease, transform 0.1s linear;
-  border-color: var(--color-primary);
-  transform: scale(0.9);
-}
-
-/* Active link style remains for persistent active state */
-.active {
-  transition: border-color 0.3s ease, transform 0.1s linear;
-  border-color: var(--color-primary);
-  background-color: var(--color-primary);
-  transform: scale(1.05);
-}
 
 /* Main: fills remaining space */
 .main {
@@ -203,16 +166,52 @@ body {
   }
 }
 
-.Search {
-  width: 100%;
-  max-width: 400px;
-  align-self: center;
-}
-
 .Logo {
   display: flex;
   flex-direction: row;
   gap: 10px;
   align-items: center;
   text-decoration: none;
+}
+
+.Search {
+  width: 100%;
+  max-width: 400px;
+  align-self: center;
+}
+.Search {
+  width: 100%;
+  max-width: 400px;
+  align-self: center;
+}
+
+/* Override the default Ant Design selector styles */
+.ant-select-selector {
+  /* Match TextInput input styling */
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  background-color: var(--color-background-primary);
+  border: var(--border-solid-sm) !important;
+  border-radius: var(--border-radius-sm) !important;
+  padding: var(--spacing-xs) !important;
+  box-shadow: var(--box-shadow);
+  transition: 
+    border-color 0.3s ease, 
+    color 0.3s ease, 
+    transform 0.1s linear, 
+    box-shadow 0.1s linear, 
+    background-color 0.3s ease;
+}
+
+/* Hover state */
+.ant-select-selector:hover {
+  border-color: var(--color-primary) !important;
+  transform: scale(1.02);
+}
+
+/* Focus state */
+.ant-select-focused .ant-select-selector {
+  border-color: var(--color-primary) !important;
 }

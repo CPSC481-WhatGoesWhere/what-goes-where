@@ -1,0 +1,38 @@
+
+/* SearchBar.module.css */
+
+
+.Search {
+  width: 100%;
+  max-width: 400px;
+  align-self: center;
+}
+
+/* Override AntD's select styles */
+:global(.ant-select-selector) {
+  font-family: var(--font-family-base) !important;
+  font-size: var(--font-size-base) !important;
+  font-weight: var(--font-weight-normal) !important;
+  color: var(--color-text) !important;
+  background-color: var(--color-background-primary) !important;
+  border: var(--border-solid-sm) !important;
+  border-radius: var(--border-radius-sm) !important;
+  padding: var(--spacing-xs) var(--spacing-sm) !important;
+  box-shadow: var(--box-shadow) !important;
+  transition: 
+    border-color 0.3s ease, 
+    color 0.3s ease, 
+    transform 0.1s ease, 
+    box-shadow 0.1s ease, 
+    background-color 0.3s ease !important;
+}
+
+:global(.ant-select-selector:hover) {
+  border-color: var(--color-primary) !important;
+  transform: scale(1.03) !important;
+}
+
+:global(.ant-select-focused .ant-select-selector) {
+  border-color: var(--color-primary) !important;
+  transform: scale(1.03) !important;
+}

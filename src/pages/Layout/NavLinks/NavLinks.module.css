@@ -1,3 +1,4 @@
+
 /* Navigation Button Container */
 .buttonContainer {
   display: flex;
@@ -12,13 +13,18 @@
   text-decoration: none;
   color: var(--color-text);
   padding: var(--spacing-xs) var(--spacing-md);
-  transition: border-color 0.3s ease, color 0.3s ease, transform 0.1s linear,
-    box-shadow 0.1s linear, background-color 0.3s ease;
+  transition: 
+    border-color 0.3s ease, 
+    color 0.3s ease, 
+    transform 0.1s linear,
+    box-shadow 0.1s linear, 
+    background-color 0.3s ease;
   white-space: nowrap;
   font-size: var(--font-size-base); /* or use a responsive value */
   border-radius: var(--border-radius-md);
-  border: var(--border-transparent);
+  border: var(--border-solid-sm);
   margin: 0;
+  box-shadow: var(--box-shadow) !important;
 }
 
 /* Focus state: reset transform to default */
@@ -30,25 +36,37 @@
 /* Hover state: slight scale up */
 .buttonContainer a:hover {
   border-color: var(--color-primary);
-  transform: scale(1);
+  transform: scale(1.05);
 }
 
 /* Active state: scale down for click feedback */
 .buttonContainer a:active {
   border-color: var(--color-primary);
   transform: scale(0.9);
+  box-shadow: var(--box-shadow-none) !important;
 }
 
 /* Active link style remains for persistent active state */
 .buttonContainer a.active {
   border-color: var(--color-primary);
   background-color: var(--color-primary);
-  transform: scale(1.1);
+  transform: scale(1);
   color: white;
 }
 
-/* Hover state: slight scale up */
-.buttonContainer a:hover.active {
-  background-color: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+/* Focus state: reset transform to default */
+.buttonContainer a.active:focus {
+  transform: scale(1);
 }
+
+/* Hover state: slight scale up */
+.buttonContainer a.active:hover {
+  transform: scale(1.05);
+}
+
+/* Active state: scale down for click feedback */
+.buttonContainer a.active:active {
+  transform: scale(0.9);
+  box-shadow: var(--box-shadow-none) !important;
+}
+

@@ -13,8 +13,10 @@ const Layout: React.FC = () => (
   <div className={styles.container}>
     <header className={styles.header}>
       <Logo />
-      <SearchBar />
-      <NavLinks />
+      <div className={styles.headerRight}>
+        <SearchBar />
+        <NavLinks />
+      </div>
     </header>
     <main className={styles.main}>
       <Outlet />

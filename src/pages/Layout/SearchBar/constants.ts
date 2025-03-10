@@ -1,4 +1,4 @@
-import { DISPOSAL_INFO } from "../ItemPage/constants";
+import { DISPOSAL_INFO } from "../../ItemPage/constants";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function extractSearchOptions(data: Record<string, any>) {
