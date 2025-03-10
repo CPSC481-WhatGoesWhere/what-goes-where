@@ -1,5 +1,11 @@
 import { Location } from "@/Components/LocationsMap/LocationsMap";
 
+export const REFUND_RATES = {
+  glass: 0.2,
+  plastic: 0.15,
+  aluminum: 0.1,
+};
+
 export const RECYCLING_DEPOTS: Location[] = [
   {
     id: 1,
