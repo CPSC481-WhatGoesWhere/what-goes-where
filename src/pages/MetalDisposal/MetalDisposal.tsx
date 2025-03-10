@@ -13,24 +13,23 @@ function MetalDisposal() {
   );
   return (
     <FlexBackGround>
-      <FlexRow style={{flex: "none"}}>
+      <FlexRow style={{ flex: "none" }}>
         <Block>
           <div className={styles.container}>
-            <h1>Wire Recycling</h1>
-            <p>Recycle your electrical wires for cash.</p>
-            <h4>Nearby Wire Recycling Depots</h4>
+            <h1>Metal Recycling</h1>
+            <p>Recycle your metal for cash.</p>
           </div>
         </Block>
       </FlexRow>
-        <FlexRow >
-          <Block style={{height: "100%"}}>
-            <LocationsMap
-              locations={METAL_RECYCLING_DEPOTS}
-              selectedLocation={selectedLocation}
-              setSelectedLocation={setSelectedLocation}
-            />
-          </Block>
-        </FlexRow>
+      <FlexRow>
+        <Block style={{ height: "100%" }}>
+          <LocationsMap
+            locations={METAL_RECYCLING_DEPOTS}
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
+          />
+        </Block>
+      </FlexRow>
     </FlexBackGround>
   );
 }
