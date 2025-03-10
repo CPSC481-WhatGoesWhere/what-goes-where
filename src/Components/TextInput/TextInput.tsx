@@ -1,20 +1,18 @@
-
 // TextInput.tsx
-
 
 import React, { CSSProperties, InputHTMLAttributes } from "react";
 import styles from "./TextInput.module.css";
 
-interface TextInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
+interface TextInputProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
   containerStyle?: CSSProperties;
   inputStyle?: CSSProperties;
   onChange?: (value: string) => void; // Custom onChange expects a string value
 }
 
-
 /**
  * A flexible text input component.
- * Supports all standard `<input>` properties and allows custom 
+ * Supports all standard `<input>` properties and allows custom
  * styling of both the container and the input element.
  *
  * @example
@@ -26,7 +24,7 @@ interface TextInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "on
  *   containerStyle={{ margin: "20px 0" }}
  *   inputStyle={{ padding: "8px", borderRadius: "4px" }}
  * />
- * 
+ *
  */
 const TextInput: React.FC<TextInputProps> = ({
   containerStyle,
@@ -43,10 +41,10 @@ const TextInput: React.FC<TextInputProps> = ({
   return (
     <div className={styles.textInputContainer} style={containerStyle}>
       <input
-        className={styles.input}
         style={inputStyle}
         onChange={handleChange}
         {...inputProps}
+        className={`${styles.input} ${inputProps.className || ""}`}
       />
     </div>
   );

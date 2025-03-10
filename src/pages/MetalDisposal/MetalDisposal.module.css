@@ -14,3 +14,18 @@
   gap: 20px;
   overflow-y: auto;
 }
+
+.postalCodeInput {
+  width: 100px;
+}
+
+.postalCodeInput:valid {
+  border: none;
+}
+.postalCodeInput:invalid {
+  border: 1px solid red;
+}
+
+.postalCodeButton {
+  width: 100px;
+}
