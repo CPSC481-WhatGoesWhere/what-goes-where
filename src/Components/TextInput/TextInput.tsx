@@ -7,6 +7,7 @@ interface TextInputProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, "onChange"> {
   containerStyle?: CSSProperties;
   inputStyle?: CSSProperties;
+  isColored?: Boolean;
   onChange?: (value: string) => void; // Custom onChange expects a string value
 }
 
@@ -29,6 +30,7 @@ interface TextInputProps
 const TextInput: React.FC<TextInputProps> = ({
   containerStyle,
   inputStyle,
+  isColored = false,
   onChange,
   ...inputProps
 }) => {
@@ -44,7 +46,7 @@ const TextInput: React.FC<TextInputProps> = ({
         style={inputStyle}
         onChange={handleChange}
         {...inputProps}
-        className={`${styles.input} ${inputProps.className || ""}`}
+        className={`${styles.input} ${inputProps.className || ""} ${isColored ? styles.isColored : ''}`}
       />
     </div>
   );
