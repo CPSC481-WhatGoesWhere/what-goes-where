@@ -19,7 +19,7 @@ function PageNotFound() {
   return (
     <FlexBackGround>
       <FlexRow>
-        <Block>
+        <Block style={{maxWidth: "40%"}}>
           <img alt={'bins'} src={logo}></img>
           <h1>Uh-oh</h1>
           <p>404 Page not found</p>

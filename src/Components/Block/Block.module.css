@@ -35,7 +35,7 @@
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   color: var(--color-text);
-  background-color: white;
+  background-color: var(--color-background-primary);
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -45,4 +45,99 @@
   padding: var(--spacing-lg);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--box-shadow);
+}
+
+
+.blockButton {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  gap: var(--spacing-md);
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  outline: none;
+  transition: 
+    border-color 0.3s ease, 
+    color 0.3s ease, 
+    transform 0.1s linear,
+    box-shadow 0.1s linear, 
+    background-color 0.3s ease;
+  cursor: pointer;
+  border-color: var(--color-accent);
+}
+
+
+.blockButton:hover {
+  border-color: var(--color-accent-dark);
+  color: var(--color-accent-dark);
+  transform: scale(1.02);
+}
+
+.blockButton:active {
+  border-color: var(--color-accent-dark);
+  color: var(--color-accent-dark);
+  transform: scale(0.95);
+  box-shadow: var(--box-none);
+}
+
+/* Ensure the feature block container fills its parent */
+.featureBlockContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* or var(--spacing-none) if defined */
+  height: 100%;
+  gap: var(--spacing-md);
+}
+
+/* Left side container for the image */
+.featureBlockLeftContainer {
+  box-sizing: border-box;
+  position: relative;
+  width: 15%;
+  padding: 0;
+  overflow: hidden;
+  max-width: 120px;
+}
+
+
+/* Position the image to fill the wrapper */
+.featureBlockLeftContainer img {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right side container for text */
+.featureBlockRightContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: var(--spacing-none);
+  box-sizing: border-box;
+  max-width: 20ch; /* Limit each line to roughly 20 characters */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Allows wrapping into two lines */
+  line-clamp: 3; /* Standard property (experimental, not widely supported yet) */
+  white-space: normal; /* Allow wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word; /* Break long words if needed */
+
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
 }
