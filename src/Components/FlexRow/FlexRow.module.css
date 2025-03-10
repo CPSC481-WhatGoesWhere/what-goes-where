@@ -30,11 +30,12 @@
 
 
 .flexRowContainer {
+  box-sizing: border-box !important;
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   color: var(--color-text);
-  background-color: var(--color-background-outlet);
+  background-color: transparent;
   display: flex;
   flex: 1;
   gap: var(--spacing-md);
@@ -44,5 +45,9 @@
   align-items: center;
   justify-content: center;
   border: var(--border-none);
-  padding: var(--spacing-none);
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+
 }
