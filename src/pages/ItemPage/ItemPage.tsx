@@ -15,7 +15,14 @@ function ItemPage() {
 
   return (
     <FlexBackGround>
-      <Block style={{alignContent: 'center', justifyContent: 'center', flex: "none"}}>
+      <Block
+        style={{
+          alignContent: "center",
+          justifyContent: "center",
+          flex: "none",
+          alignItems: "flex-start",
+        }}
+      >
         {data.map((item, index) => {
           const [tag, content] = Object.entries(item)[0];
 
