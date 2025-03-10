@@ -4,7 +4,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Select } from "antd";
-import styles from "./Layout.module.css";
+import styles from "./SearchBar.module.css";
 import { SEARCH_OPTIONS } from "./constants"; 
 
 const SearchBar: React.FC = () => {
