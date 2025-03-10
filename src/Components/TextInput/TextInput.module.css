@@ -32,6 +32,7 @@
 .textInputContainer {
   background-color: var(--color-background-primary);
   display: flex;
+  flex-direction: row;
   flex: 1;
   width: 100%;
   align-items: center;
@@ -76,7 +77,7 @@
 .input:active,
 .input:focus {
   border-color: var(--color-primary);
-  transform: scale(1.02); 
+  transform: scale(1.01); 
 }
 
 /* Disabled state */
@@ -89,4 +90,8 @@
 /* Optional error state, if you add an "error" class */
 .input.error {
   border-color: var(--color-accent);
+}
+
+.isColored {
+  border-color: var(--color-primary);
 }
