@@ -5,6 +5,7 @@ import React, { CSSProperties, useEffect, useRef } from "react";
 import styles from "./ChatList.module.css";
 import Spacer from "@/Components/Spacer";
 import ChatListItem from "./ChatListItem";
+import ScrollList from "@/Components/ScrollList";
 
 // Define the type for a single chat item.
 export interface ChatItem {
@@ -30,7 +31,7 @@ const ChatList: React.FC<ChatListProps> = ({ items, style }) => {
   return (
     <>
       <Spacer height={10} />
-      <div className={styles.generalContainer} style={style}>
+      <ScrollList style={style}>
         <Spacer height={10} />
         {items.map((item) => (
           <React.Fragment key={item.id}>
@@ -40,7 +41,7 @@ const ChatList: React.FC<ChatListProps> = ({ items, style }) => {
         ))}
         {/* Dummy div to mark the bottom of the chat list */}
         <div ref={bottomRef} />
-      </div>
+      </ScrollList>
     </>
   );
 };
