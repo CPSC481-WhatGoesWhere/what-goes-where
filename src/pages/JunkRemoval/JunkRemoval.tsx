@@ -3,12 +3,12 @@
 
 
 import FlexBackGround from "@/Components/FlexBackGround";
-import FlexRow from "@/Components/FlexRow";
 import Block from "@/Components/Block";
 import styles from "./JunkRemoval.module.css";
 import { JUNK_REMOVAL_SERVICES } from "./constants";
 import ClickableBlock from "@/Components/Block/ClickableBlock";
 import Spacer from "@/Components/Spacer";
+import ScrollList from "@/Components/ScrollList";
 
 function JunkRemoval() {
 
@@ -18,7 +18,7 @@ function JunkRemoval() {
 
   return (
     <FlexBackGround style={{ gap: "var(--spacing-xs)", padding: "var(--spacing-xs)"}}>
-      <div style={{maxWidth: "80%"}} className={`${styles.scrollList}`}>
+      <ScrollList style={{maxWidth: "80%"}}>
         <Spacer height={20} />
         <Block
           style={{maxWidth: "100%", minHeight: "20%", justifyContent: 'center',}}
@@ -50,7 +50,7 @@ function JunkRemoval() {
               <Spacer height={24} />
             </>
           ))}
-      </div>
+      </ScrollList>
     </FlexBackGround>
   );
 }

@@ -1,0 +1,38 @@
+
+
+.scrollList {
+  box-sizing: border-box !important;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  flex: 1;
+  width: 100%;
+  padding: var(--spacing-none);
+  overflow-y: scroll;
+  overflow-x: visible;
+  padding: var(--spacing-none) var(--spacing-md);
+  /* Apply a mask so that everything including shadows fades out at the top and bottom */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,         /* Fully transparent at the very top */
+    rgba(0,0,0,1) 10px,        /* Fade in over the first 20px */
+    rgba(0,0,0,1) calc(100% - 10px), /* Fully opaque until 20px from the bottom */
+    rgba(0,0,0,0) 100%         /* Fade out over the last 20px */
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,1) 10px,
+    rgba(0,0,0,1) calc(100% - 20px),
+    rgba(0,0,0,0) 100%
+  );
+}
+
+
+/* Hide scrollbar for WebKit-based browsers */
+.scrollList::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
