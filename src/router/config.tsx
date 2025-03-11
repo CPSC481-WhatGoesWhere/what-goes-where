@@ -8,6 +8,7 @@ import MetalDisposal from "@/pages/MetalDisposal";
 import PageNotFound from "@/pages/PageNotFound";
 import ItemPage from "@/pages/ItemPage";
 import ClothingDonations from "@/pages/ClothingDonations";
+import JunkRemoval from "@/pages/JunkRemoval";
 
 export const ROUTES_CONFIG = [
   {
@@ -37,6 +38,10 @@ export const ROUTES_CONFIG = [
       {
         path: "item/:item",
         element: <ItemPage />,
+      },
+      {
+        path: "junk-removal",
+        element: <JunkRemoval />,
       },
       {
         path: "*", // 404 route under Layout
