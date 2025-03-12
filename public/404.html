@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // Redirect all requests to index.html with proper pathname
+      var redirect = window.location.pathname.replace(/^\/what-goes-where/, "");
+      window.location.replace("/what-goes-where/index.html?redirect=" + redirect);
+    </script>
+  </head>
+</html>
