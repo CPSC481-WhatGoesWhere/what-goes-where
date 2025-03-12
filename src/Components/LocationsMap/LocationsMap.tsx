@@ -4,6 +4,15 @@ import styles from "./LocationsMap.module.css";
 import Button from "../Button";
 import TextInput from "../TextInput";
 import { useState } from "react";
+import L from "leaflet";
+
+// Fix missing Leaflet marker icons in Vite
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: new URL("leaflet/dist/images/marker-icon-2x.png", import.meta.url).href,
+  iconUrl: new URL("leaflet/dist/images/marker-icon.png", import.meta.url).href,
+  shadowUrl: new URL("leaflet/dist/images/marker-shadow.png", import.meta.url).href,
+});
 
 export type Location = {
   id: number;
