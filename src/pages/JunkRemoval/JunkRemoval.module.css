@@ -1,29 +1,90 @@
-.container {
+
+
+
+/* Ensure the feature block container fills its parent */
+.clickableBlockContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--spacing-none);
+  height: 100%;
+  gap: var(--spacing-md);
+}
+
+/* Top side container */
+.clickableBlockTopContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--spacing-none);
+  box-sizing: border-box;
+  white-space: normal; /* Allow wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+
+/* Bottom side container for text */
+.clickableBlockBottomContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: var(--spacing-none);
+  box-sizing: border-box;
+  white-space: normal; /* Allow wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   color: var(--color-text);
-  background-color: var(--color-background);
+}
+
+.scrollList {
+  box-sizing: border-box !important;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  flex: 1;
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--spacing-md);
-  gap: 20px;
-  overflow-y: auto;
+  padding: var(--spacing-none);
+  overflow-y: scroll;
+  overflow-x: visible;
+  padding: var(--spacing-none) var(--spacing-md);
+  /* Apply a mask so that everything including shadows fades out at the top and bottom */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,         /* Fully transparent at the very top */
+    rgba(0,0,0,1) 10px,        /* Fade in over the first 20px */
+    rgba(0,0,0,1) calc(100% - 10px), /* Fully opaque until 20px from the bottom */
+    rgba(0,0,0,0) 100%         /* Fade out over the last 20px */
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,1) 10px,
+    rgba(0,0,0,1) calc(100% - 20px),
+    rgba(0,0,0,0) 100%
+  );
 }
 
-.blockClickable {
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
 
-.blockClickable:hover {
-  transform: scale(1.01);
-}
-
-.blockClickable:active {
-  transform: scale(0.98);
+/* Hide scrollbar for WebKit-based browsers */
+.scrollList::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
 }
