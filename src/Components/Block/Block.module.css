@@ -53,6 +53,9 @@
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
   color: var(--color-accent);
+  display: flex;
+  flex: 1;
+  width: 100%;
   gap: var(--spacing-md);
   flex-direction: row;
   flex-wrap: wrap;
@@ -72,14 +75,14 @@
 
 
 .blockButton:hover {
-  border-color: var(--color-accent-dark);
-  color: var(--color-accent-dark);
+  /* border-color: var(--color-accent-dark);
+  color: var(--color-accent-dark); */
   transform: scale(1.02);
 }
 
 .blockButton:active {
-  border-color: var(--color-accent-dark);
-  color: var(--color-accent-dark);
+  /* border-color: var(--color-accent-dark);
+  color: var(--color-accent-dark); */
   transform: scale(0.95);
   box-shadow: var(--box-none);
 }
@@ -140,4 +143,12 @@
   font-family: var(--font-family-base);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
+}
+
+
+
+
+/* Ensure the feature block container fills its parent */
+.clickableBlockExtra {
+  gap: var(--spacing-lg);
 }

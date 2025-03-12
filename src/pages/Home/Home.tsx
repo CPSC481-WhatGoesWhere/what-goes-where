@@ -15,15 +15,68 @@ import ClothingDonationIMG from "../../assets/clothing.png";
 import BottleDepotIMG from "../../assets/bottles.png";
 import MetalRecyclingIMG from "../../assets/metal-money.png";
 import JunkRemovalIMG from "../../assets/trash-truck.png";
+import { CHAT_ITEMS } from "@/pages/General/constants";
+import { ChatItem } from "@/pages/General/ChatList/ChatList";
+import { storeInSession } from "@/functions/sessionStorageHelpers";
 
 
 function Home() {
   const navigate = useNavigate();
 
   const [chatQuestion, setChatQuestion] = useState("")
+  const [chatItems, setChatItems] = useState<ChatItem[]>([]);
 
+  
+  // Function to add chat items based on the input.
   const handleButtonClick = () => {
+    if (!chatQuestion.trim()) return;
+
+    // Wrap the user's question in <p></p>
+    const userMessage = `<p>${chatQuestion}</p>`;
+    const lowerCaseQuestion = chatQuestion.toLowerCase();
+    let selectedItem = CHAT_ITEMS.find((item) => item.id === "InvalidSubject");
+
+    if (lowerCaseQuestion.includes("bottle depot")) {
+      selectedItem = CHAT_ITEMS.find((item) => item.id === "BottleDepot");
+    } else if (lowerCaseQuestion.includes("clothing donation")) {
+      selectedItem = CHAT_ITEMS.find((item) => item.id === "ClothingDonation");
+    } else if (lowerCaseQuestion.includes("metal recycling")) {
+      selectedItem = CHAT_ITEMS.find((item) => item.id === "MetalRecycling");
+    } else if (lowerCaseQuestion.includes("junk removal")) {
+      selectedItem = CHAT_ITEMS.find((item) => item.id === "JunkRemoval");
+    }
+
+    // Fallback in case selectedItem is undefined (shouldn't happen if constants are correct)
+    const responseMessage = selectedItem ? selectedItem.message : "";
+
+    // Create two new chat items:
+    const newChatItems: ChatItem[] = [
+      {
+        id: Date.now().toString() + "-right",
+        message: userMessage,
+        side: "right",
+      },
+      {
+        id: Date.now().toString() + "-left",
+        message: responseMessage,
+        side: "left",
+      },
+    ];
+
+    const updatedChats = [...chatItems, ...newChatItems];
+    setChatItems(updatedChats);
+    storeInSession("chatItems", updatedChats);
+    setChatQuestion(""); // Clear the input after submitting.
+    console.log("Chat items updated.");
     navigate('/general')
+  };
+
+  // Handle pressing Enter in the TextInput.
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleButtonClick();
+    }
   };
 
   return (
@@ -34,6 +87,7 @@ function Home() {
           <TextInput
             value={chatQuestion}
             onChange={setChatQuestion}
+            onKeyDown={handleKeyDown}
             placeholder="E.g. Where do I throw out batteries?"
           />
           <Button
