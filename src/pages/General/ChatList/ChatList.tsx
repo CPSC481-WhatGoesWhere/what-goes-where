@@ -2,7 +2,6 @@
 // ChatList.tsx
 
 import React, { CSSProperties, useEffect, useRef } from "react";
-import styles from "./ChatList.module.css";
 import Spacer from "@/Components/Spacer";
 import ChatListItem from "./ChatListItem";
 import ScrollList from "@/Components/ScrollList";
@@ -30,8 +29,11 @@ const ChatList: React.FC<ChatListProps> = ({ items, style }) => {
 
   return (
     <>
-      <Spacer height={10} />
-      <ScrollList style={style}>
+      <ScrollList 
+        style={style}
+        bottomFade={true}
+        topFade={true}
+      >
         <Spacer height={10} />
         {items.map((item) => (
           <React.Fragment key={item.id}>

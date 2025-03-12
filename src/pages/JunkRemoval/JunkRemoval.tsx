@@ -17,11 +17,19 @@ function JunkRemoval() {
   };
 
   return (
-    <FlexBackGround style={{ gap: "var(--spacing-xs)", padding: "var(--spacing-xs)"}}>
-      <ScrollList style={{maxWidth: "80%"}}>
+    <FlexBackGround style={{ gap: "var(--spacing-none)", padding: "var(--spacing-none)"}}>
+      <ScrollList 
+        style={{maxWidth: "100%"}}
+        bottomFade={false}
+        topFade={true}
+      >
         <Spacer height={20} />
         <Block
-          style={{maxWidth: "100%", minHeight: "20%", justifyContent: 'center',}}
+          style={{
+            maxWidth: "70%",
+            margin: "var(--spacing-none) auto", 
+            justifyContent: 'center'
+          }}
         >
           <h2>Junk Removal</h2>
           <p>
@@ -33,7 +41,10 @@ function JunkRemoval() {
           {JUNK_REMOVAL_SERVICES.map((service) => (
             <>
               <ClickableBlock
-                style={{maxWidth: "100%"}}
+                style={{
+                  maxWidth: "70%",
+                  margin: "var(--spacing-none) auto",
+                }}
                 key={service.id}
                 onClick={handleBlockClick}
                 clickArgs={[service.website]}
