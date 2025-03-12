@@ -1,4 +1,3 @@
-import React from "react";
 import FlexBackGround from "@/Components/FlexBackGround";
 import FlexRow from "@/Components/FlexRow";
 import Block from "@/Components/Block";
