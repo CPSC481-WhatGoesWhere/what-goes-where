@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# Grant the workflow write access to repository contents
+permissions:
+  contents: write  # Allows pushing to gh-pages
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
