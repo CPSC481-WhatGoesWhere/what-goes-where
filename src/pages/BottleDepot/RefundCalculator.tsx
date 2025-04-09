@@ -33,8 +33,8 @@ function RefundCalculator() {
   const isClearDisabled = !glassBottles && !plasticBottles && !aluminiumCans;
 
   return (
-    <Block style={{ height: "100%", flex: 1, maxWidth: "600px" }}>
-        <h3>Calculate refund estimate</h3>
+    <Block style={{ flex: 1, maxWidth: "600px", }}>
+            <h3>Calculate Refund Estimate</h3>
         <div className={styles.refundInputsContainer}>
             <TextInput
             title="Amount of Glass Bottles:"
