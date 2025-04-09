@@ -1,5 +1,3 @@
-
-
 /* TextInput.module.css */
 
 
@@ -94,4 +92,18 @@
 
 .isColored {
   border-color: var(--color-primary);
+}
+
+.outerContainer {
+  display: flex;
+  flex-direction: column; /* Stack label and input vertically */
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md); /* Slightly smaller font size for the label */
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs); /* Add spacing between label and input */
 }
