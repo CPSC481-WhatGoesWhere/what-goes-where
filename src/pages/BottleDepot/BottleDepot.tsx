@@ -21,8 +21,8 @@ function BottleDepot() {
         bottomFade={false}
         topFade={true}
       >
-        <FlexRow style={{ flex: "none" }}>
-          <Block style={{ height: "100%", flex: 1 }}>
+        <FlexRow style={{ flex: "none", alignItems: "stretch" }}>
+          <Block style={{ flex: 1 }}>
             <div className={styles.container}>
               <h1>Bottles and Cans Recycling</h1>
               <p>

@@ -21,7 +21,7 @@ function RefundCalculator() {
     };
 
   return (
-    <Block style={{ height: "100%", flex: 2}}>
+    <Block style={{ height: "100%", flex: 1, maxWidth: "600px" }}>
         <h3>Calculate refund estimate</h3>
         <div className={styles.refundInputsContainer}>
             <TextInput
