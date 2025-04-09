@@ -7,13 +7,25 @@ import { METAL_RECYCLING_DEPOTS, POSTAL_CODE_REGEX_STR } from "./constants";
 import FlexBackGround from "@/Components/FlexBackGround";
 import Block from "@/Components/Block";
 import Table from "@/Components/Table";
-import { getMetalDepotTableRecords } from "./utils";
+import {
+  formatMetalDepotTableRecord,
+  getMetalDepotTableRecords,
+} from "./utils";
 import TextInput from "@/Components/TextInput";
 
 function MetalDisposal() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null
   );
+
+  const tableRowSelect = (row: Location) => {
+    document.getElementById("map")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+    setSelectedLocation(row);
+  };
   const [postalCode, setPostalCode] = useState("");
   return (
     <FlexBackGround style={{ justifyContent: "flex-start", overflowY: "auto" }}>
@@ -26,7 +38,7 @@ function MetalDisposal() {
         </Block>
       </FlexRow>
       <FlexRow>
-        <Block style={{ height: "100%" }}>
+        <Block style={{ height: "100%" }} id="map">
           <LocationsMap
             locations={METAL_RECYCLING_DEPOTS}
             selectedLocation={selectedLocation}
@@ -56,6 +68,8 @@ function MetalDisposal() {
           </div>
           <Table
             data={getMetalDepotTableRecords(METAL_RECYCLING_DEPOTS, postalCode)}
+            formatData={formatMetalDepotTableRecord}
+            onRowClick={tableRowSelect}
           />
         </Block>
       </FlexRow>

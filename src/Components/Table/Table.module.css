@@ -13,3 +13,10 @@
   background-color: #f2f2f2;
   text-align: left;
 }
+
+.clickableRow {
+  cursor: pointer;
+  :hover {
+    background-color: #f1f1f1;
+  }
+}
