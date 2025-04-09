@@ -9,6 +9,7 @@ interface TextInputProps
   inputStyle?: CSSProperties;
   isColored?: Boolean;
   onChange?: (value: string) => void; // Custom onChange expects a string value
+  title?: string;
 }
 
 /**
@@ -32,6 +33,7 @@ const TextInput: React.FC<TextInputProps> = ({
   inputStyle,
   isColored = false,
   onChange,
+  title,
   ...inputProps
 }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,13 +43,16 @@ const TextInput: React.FC<TextInputProps> = ({
   };
 
   return (
-    <div className={styles.textInputContainer} style={containerStyle}>
-      <input
-        style={inputStyle}
-        onChange={handleChange}
-        {...inputProps}
-        className={`${styles.input} ${inputProps.className || ""} ${isColored ? styles.isColored : ''}`}
-      />
+    <div className={styles.outerContainer}>
+      {title && <label className={styles.label}>{title}</label>}
+      <div className={styles.textInputContainer} style={containerStyle}>
+        <input
+          style={inputStyle}
+          onChange={handleChange}
+          {...inputProps}
+          className={`${styles.input} ${inputProps.className || ""} ${isColored ? styles.isColored : ''}`}
+        />
+      </div>
     </div>
   );
 };
