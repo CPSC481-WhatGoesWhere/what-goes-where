@@ -42,9 +42,9 @@ const TextInput: React.FC<TextInputProps> = ({
     }
   };
 
-  return (
+  return title ? (
     <div className={styles.outerContainer}>
-      {title && <label className={styles.label}>{title}</label>}
+      <label className={styles.label}>{title}</label>
       <div className={styles.textInputContainer} style={containerStyle}>
         <input
           style={inputStyle}
@@ -53,6 +53,15 @@ const TextInput: React.FC<TextInputProps> = ({
           className={`${styles.input} ${inputProps.className || ""} ${isColored ? styles.isColored : ''}`}
         />
       </div>
+    </div>
+  ) : (
+    <div className={styles.textInputContainer} style={containerStyle}>
+      <input
+        style={inputStyle}
+        onChange={handleChange}
+        {...inputProps}
+        className={`${styles.input} ${inputProps.className || ""} ${isColored ? styles.isColored : ''}`}
+      />
     </div>
   );
 };
