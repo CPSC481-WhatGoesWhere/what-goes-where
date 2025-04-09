@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Block from "@/Components/Block";
 import TextInput from "@/Components/TextInput";
+import Button from "@/Components/Button/Button";
 import styles from "./BottleDepot.module.css";
 import { calculateEstimatedRefund } from "./utils";
 
@@ -19,6 +20,17 @@ function RefundCalculator() {
     (setter: (val: number | undefined) => void) => (v: string) => {
       setter(v ? parseInt(v) : undefined);
     };
+
+  const clearInputs = () => {
+    setGlassBottles(undefined);
+    setPlasticBottles(undefined);
+    setAluminiumCans(undefined);
+    document.querySelectorAll("input[type='number']").forEach((input) => {
+      (input as HTMLInputElement).value = "";
+    });
+  };
+
+  const isClearDisabled = !glassBottles && !plasticBottles && !aluminiumCans;
 
   return (
     <Block style={{ height: "100%", flex: 1, maxWidth: "600px" }}>
@@ -49,13 +61,16 @@ function RefundCalculator() {
             min={0}
             />
             <p>
-            <strong>Estimated refund: </strong>$
-            {calculateEstimatedRefund(
-                glassBottles,
-                plasticBottles,
-                aluminiumCans
-            ).toFixed(2)}
+              <strong>Estimated refund: </strong>$
+              {calculateEstimatedRefund(
+                  glassBottles,
+                  plasticBottles,
+                  aluminiumCans
+              ).toFixed(2)}
             </p>
+            <Button onClick={clearInputs} disabled={isClearDisabled}>
+              Clear All
+            </Button>
         </div>
     </Block>
   );
