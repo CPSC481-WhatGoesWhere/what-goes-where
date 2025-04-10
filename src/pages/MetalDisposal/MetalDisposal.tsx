@@ -2,8 +2,12 @@ import FlexRow from "@/Components/FlexRow";
 import styles from "./MetalDisposal.module.css";
 import LocationsMap from "@/Components/LocationsMap";
 import { useState } from "react";
-import { Location } from "@/Components/LocationsMap/LocationsMap";
-import { METAL_RECYCLING_DEPOTS, POSTAL_CODE_REGEX_STR } from "./constants";
+import { Location, METAL } from "@/Components/LocationsMap/LocationsMap";
+import {
+  METAL_RECYCLING_DEPOTS,
+  METAL_TYPES,
+  POSTAL_CODE_REGEX_STR,
+} from "./constants";
 import FlexBackGround from "@/Components/FlexBackGround";
 import Block from "@/Components/Block";
 import Table from "@/Components/Table";
@@ -12,12 +16,16 @@ import {
   getMetalDepotTableRecords,
 } from "./utils";
 import TextInput from "@/Components/TextInput";
+import Select from "@/Components/Select";
 
 function MetalDisposal() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null
   );
-
+  const [postalCode, setPostalCode] = useState("");
+  const [selectedMetal, setSelectedMetal] = useState<string | undefined>(
+    METAL_TYPES[0].value
+  );
   const tableRowSelect = (row: Location) => {
     document.getElementById("map")?.scrollIntoView({
       behavior: "smooth",
@@ -26,7 +34,6 @@ function MetalDisposal() {
     });
     setSelectedLocation(row);
   };
-  const [postalCode, setPostalCode] = useState("");
   return (
     <FlexBackGround style={{ justifyContent: "flex-start", overflowY: "auto" }}>
       <FlexRow style={{ flex: "none" }}>
@@ -35,15 +42,6 @@ function MetalDisposal() {
             <h1>Metal Recycling</h1>
             <p>Recycle your metal for cash.</p>
           </div>
-        </Block>
-      </FlexRow>
-      <FlexRow>
-        <Block style={{ height: "100%" }} id="map">
-          <LocationsMap
-            locations={METAL_RECYCLING_DEPOTS}
-            selectedLocation={selectedLocation}
-            setSelectedLocation={setSelectedLocation}
-          />
         </Block>
       </FlexRow>
       <FlexRow>
@@ -65,11 +63,32 @@ function MetalDisposal() {
                 />
               </div>
             </FlexRow>
+            <FlexRow style={{ justifyContent: "flex-start", paddingLeft: 0 }}>
+              <span>Select the metal you want to recycle:</span>
+              <Select
+                options={METAL_TYPES}
+                selectedValue={selectedMetal}
+                setSelectedValue={setSelectedMetal}
+              />
+            </FlexRow>
           </div>
           <Table
-            data={getMetalDepotTableRecords(METAL_RECYCLING_DEPOTS, postalCode)}
+            data={getMetalDepotTableRecords(
+              METAL_RECYCLING_DEPOTS,
+              postalCode,
+              selectedMetal as METAL
+            )}
             formatData={formatMetalDepotTableRecord}
             onRowClick={tableRowSelect}
+          />
+        </Block>
+      </FlexRow>
+      <FlexRow>
+        <Block style={{ height: "100%" }} id="map">
+          <LocationsMap
+            locations={METAL_RECYCLING_DEPOTS}
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
           />
         </Block>
       </FlexRow>
