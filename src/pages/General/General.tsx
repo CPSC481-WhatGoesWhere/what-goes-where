@@ -34,7 +34,7 @@ function General() {
 
   const addChatItems = (question: string) => {
     const userMessage = `<p>${question}</p>`;
-    const responseMessage = getResponseMessage(question);
+    const { message: responseMessage, navigationPath, buttonName } = getResponseMessage(question);
 
     const newChatItems: ChatItem[] = [
       {
@@ -46,6 +46,8 @@ function General() {
         id: Date.now().toString() + "-left",
         message: responseMessage,
         side: "left",
+        navigationPath: navigationPath ?? undefined,
+        buttonName: buttonName ?? undefined,
       },
     ];
 
