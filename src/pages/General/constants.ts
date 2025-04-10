@@ -1,4 +1,3 @@
-
 // @/src/pages/General/ChatList/constants.ts
 
 export const CHAT_ITEMS = [
@@ -25,6 +24,31 @@ export const CHAT_ITEMS = [
   { 
     id: "InvalidSubject", 
     message: "<h2>Invalid Subject</h2><p>Please only talk about Bottle Depot, Clothing Donation, Metal Recycling, or Junk Removal.</p>", 
+    side: "left" 
+  },
+  { 
+    id: "BatteryDisposal", 
+    message: "<h2>Battery Disposal</h2><p>Dispose of batteries safely by visiting the following link</p><a href='../battery-disposal'>LinkHere</a>", 
+    side: "left" 
+  },
+  { 
+    id: "PlasticRecycling", 
+    message: "<h2>Plastic Recycling</h2><p>Learn how to recycle plastic responsibly at the link below</p><a href='../plastic-recycling'>LinkHere</a>", 
+    side: "left" 
+  },
+  { 
+    id: "ElectronicsRecycling", 
+    message: "<h2>Electronics Recycling</h2><p>Find out how to recycle electronics by visiting the following link</p><a href='../electronics-recycling'>LinkHere</a>", 
+    side: "left" 
+  },
+  { 
+    id: "Composting", 
+    message: "<h2>Composting</h2><p>Learn about composting and how to get started at the link below</p><a href='../composting'>LinkHere</a>", 
+    side: "left" 
+  },
+  { 
+    id: "HazardousWaste", 
+    message: "<h2>Hazardous Waste</h2><p>Dispose of hazardous waste safely by following the guidelines at the link below</p><a href='../hazardous-waste'>LinkHere</a>", 
     side: "left" 
   },
 ];

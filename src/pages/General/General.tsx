@@ -1,6 +1,7 @@
 // General.tsx
 import { useEffect, useState } from "react";
 import { storeInSession, fetchFromSession } from "@/functions/sessionStorageHelpers";
+import { getResponseMessage } from "@/pages/General/responseHelpers";
 
 import FlexBackGround from "@/Components/FlexBackGround";
 import Block from "@/Components/Block";
@@ -9,7 +10,7 @@ import TextInput from "@/Components/TextInput";
 import Button from "@/Components/Button";
 import ChatList, { ChatItem } from "./ChatList/ChatList";
 import Spacer from "@/Components/Spacer";
-import { CHAT_ITEMS } from "./constants";
+// import { CHAT_ITEMS } from "./constants";
 import styles from "./General.module.css";
 
 function General() {
@@ -30,23 +31,6 @@ function General() {
       setChatItems(storedChats);
     }
   }, []);
-
-  const getResponseMessage = (question: string): string => {
-    const lowerCaseQuestion = question.toLowerCase();
-    let selectedItem = CHAT_ITEMS.find((item) => item.id === "InvalidSubject");
-
-    if (lowerCaseQuestion.includes("bottle depot")) {
-      selectedItem = CHAT_ITEMS.find((item) => item.id === "BottleDepot");
-    } else if (lowerCaseQuestion.includes("clothing donation")) {
-      selectedItem = CHAT_ITEMS.find((item) => item.id === "ClothingDonation");
-    } else if (lowerCaseQuestion.includes("metal recycling")) {
-      selectedItem = CHAT_ITEMS.find((item) => item.id === "MetalRecycling");
-    } else if (lowerCaseQuestion.includes("junk removal")) {
-      selectedItem = CHAT_ITEMS.find((item) => item.id === "JunkRemoval");
-    }
-
-    return selectedItem ? selectedItem.message : "";
-  };
 
   const addChatItems = (question: string) => {
     const userMessage = `<p>${question}</p>`;
