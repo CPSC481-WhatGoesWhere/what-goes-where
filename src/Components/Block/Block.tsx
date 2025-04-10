@@ -1,4 +1,3 @@
-
 // Block.tsx
 
 import React, { ReactNode, CSSProperties } from "react";
@@ -11,6 +10,8 @@ interface BlockProps {
   asButton?: boolean;
   /** Optional onClick handler for button usage. */
   onClick?: () => void;
+  /** Optional id for the block. */
+  id?: string;
 }
 
 const Block: React.FC<BlockProps> = ({
@@ -18,21 +19,22 @@ const Block: React.FC<BlockProps> = ({
   style,
   asButton = false,
   onClick,
+  id = "",
 }) => {
-  
   if (asButton) {
     return (
-      <button 
+      <button
         className={`${styles.blockContainer} ${styles.blockButton}`}
-        style={style} 
-        onClick={onClick}>
+        style={style}
+        onClick={onClick}
+      >
         {children}
       </button>
     );
   }
 
   return (
-    <div className={styles.blockContainer} style={style}>
+    <div className={styles.blockContainer} style={style} id={id}>
       {children}
     </div>
   );

@@ -1,15 +1,17 @@
-
 // ChatListItem.tsx
 
 import React, { ReactNode } from "react";
 import styles from "./ChatList.module.css";
+import Button from "@/Components/Button";
 
 interface ChatListItemProps {
   children: ReactNode;
   side: "left" | "right";
+  navigationPath?: string;
+  buttonName?: string;
 }
 
-const ChatListItem: React.FC<ChatListItemProps> = ({ children, side }) => {
+const ChatListItem: React.FC<ChatListItemProps> = ({ children, side, navigationPath, buttonName }) => {
   // If children is a string, assume it contains HTML and render accordingly.
   if (typeof children === "string") {
     return (
@@ -18,8 +20,18 @@ const ChatListItem: React.FC<ChatListItemProps> = ({ children, side }) => {
           className={`${styles.itemSubContainer} ${
             side === "right" ? styles.rightItem : styles.leftItem
           }`}
-          dangerouslySetInnerHTML={{ __html: children }}
-        />
+        >
+          <div dangerouslySetInnerHTML={{ __html: children }} />
+          {navigationPath && buttonName && (
+            <Button
+              dark={false}
+              onClick={() => window.location.href = navigationPath}
+              containerStyle={{ marginTop: "10px" }}
+            >
+              {buttonName}
+            </Button>
+          )}
+        </div>
       </div>
     );
   }
@@ -33,6 +45,15 @@ const ChatListItem: React.FC<ChatListItemProps> = ({ children, side }) => {
         }`}
       >
         {children}
+        {navigationPath && buttonName && (
+          <Button
+            dark={true}
+            onClick={() => window.location.href = navigationPath}
+            containerStyle={{ marginTop: "10px" }}
+          >
+            {buttonName}
+          </Button>
+        )}
       </div>
     </div>
   );
