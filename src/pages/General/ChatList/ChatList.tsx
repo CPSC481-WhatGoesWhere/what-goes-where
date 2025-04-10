@@ -1,4 +1,3 @@
-
 // ChatList.tsx
 
 import React, { CSSProperties, useEffect, useRef } from "react";
@@ -11,6 +10,8 @@ export interface ChatItem {
   id: string;
   message: string;
   side: "left" | "right";
+  navigationPath?: string;
+  buttonName?: string;
 }
 
 interface ChatListProps {
@@ -37,7 +38,9 @@ const ChatList: React.FC<ChatListProps> = ({ items, style }) => {
         <Spacer height={10} />
         {items.map((item) => (
           <React.Fragment key={item.id}>
-            <ChatListItem side={item.side}>{item.message}</ChatListItem>
+            <ChatListItem side={item.side} navigationPath={item.navigationPath} buttonName={item.buttonName}>
+              {item.message}
+            </ChatListItem>
             <Spacer height={20} />
           </React.Fragment>
         ))}
