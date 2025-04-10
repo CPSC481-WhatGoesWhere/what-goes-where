@@ -2,7 +2,7 @@ import FlexRow from "@/Components/FlexRow";
 import styles from "./MetalDisposal.module.css";
 import LocationsMap from "@/Components/LocationsMap";
 import { useState } from "react";
-import { Location } from "@/Components/LocationsMap/LocationsMap";
+import { Location, METAL } from "@/Components/LocationsMap/LocationsMap";
 import { METAL_RECYCLING_DEPOTS, POSTAL_CODE_REGEX_STR } from "./constants";
 import FlexBackGround from "@/Components/FlexBackGround";
 import Block from "@/Components/Block";
@@ -17,7 +17,10 @@ function MetalDisposal() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
     null
   );
-
+  const [postalCode, setPostalCode] = useState("");
+  const [selectedMetal, setSelectedMetal] = useState<METAL | undefined>(
+    undefined
+  );
   const tableRowSelect = (row: Location) => {
     document.getElementById("map")?.scrollIntoView({
       behavior: "smooth",
@@ -26,7 +29,6 @@ function MetalDisposal() {
     });
     setSelectedLocation(row);
   };
-  const [postalCode, setPostalCode] = useState("");
   return (
     <FlexBackGround style={{ justifyContent: "flex-start", overflowY: "auto" }}>
       <FlexRow style={{ flex: "none" }}>
@@ -65,9 +67,29 @@ function MetalDisposal() {
                 />
               </div>
             </FlexRow>
+            <FlexRow style={{ justifyContent: "flex-start", paddingLeft: 0 }}>
+              <span>Select the metal you want to recycle:</span>
+              <select
+                className={styles.metalSelect}
+                value={selectedMetal}
+                onChange={(e) =>
+                  setSelectedMetal(e.target.value as METAL | undefined)
+                }
+              >
+                <option value="">Select Metal</option>
+                <option value="aluminum">Aluminum</option>
+                <option value="copper">Copper</option>
+                <option value="steel">Steel</option>
+                <option value="brass">Brass</option>
+              </select>
+            </FlexRow>
           </div>
           <Table
-            data={getMetalDepotTableRecords(METAL_RECYCLING_DEPOTS, postalCode)}
+            data={getMetalDepotTableRecords(
+              METAL_RECYCLING_DEPOTS,
+              postalCode,
+              selectedMetal
+            )}
             formatData={formatMetalDepotTableRecord}
             onRowClick={tableRowSelect}
           />

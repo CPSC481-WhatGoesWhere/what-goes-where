@@ -19,13 +19,16 @@ L.Icon.Default.mergeOptions({
     .href,
 });
 
+export type METAL = "aluminum" | "copper" | "steel" | "brass";
+export type METAL_PRICE = Record<METAL, number>;
+
 export type Location = {
   id: number;
   name: string;
   lat: number;
   lng: number;
   address: string;
-  pricePerPound?: number;
+  pricePerPound?: METAL_PRICE;
   hours: {
     Monday: string;
     Tuesday: string;
@@ -57,9 +60,17 @@ function LocationRefundDetails({ location }: { location: Location }) {
   return (
     <>
       <hr />
-      <p>
-        <strong>Price per pound: </strong>${location.pricePerPound.toFixed(2)}
-      </p>
+      <div>
+        <strong>Price per pound: </strong>
+        <ul className={styles.pricePerPoundList}>
+          {Object.entries(location.pricePerPound).map(([metal, price]) => (
+            <li key={metal}>
+              {metal.charAt(0).toUpperCase() + metal.slice(1)}: $
+              {price.toFixed(2)}
+            </li>
+          ))}
+        </ul>
+      </div>
       <h4>Cash Refund Estimation</h4>
       <label>
         Enter the number of pounds of metal you have:
@@ -72,7 +83,7 @@ function LocationRefundDetails({ location }: { location: Location }) {
       </label>
       <p>
         Estimated Refund: $
-        {pounds ? (pounds * location.pricePerPound).toFixed(2) : "0.00"}
+        {/* {pounds ? (pounds * location.pricePerPound).toFixed(2) : "0.00"} */}
       </p>
     </>
   );
