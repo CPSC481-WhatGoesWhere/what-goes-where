@@ -78,10 +78,10 @@ export const CHAT_ITEMS = [
     buttonName: "Find Out More"
   },
   {
-    id: "OldElectronics",
+    id: "BrokenElectronics",
     message: "<h2>Old Electronics</h2><p>Find proper disposal options for outdated electronics at the link below</p>",
     side: "left",
-    navigationPath: "/item/electronics",
+    navigationPath: "/item/brokenelectronics",
     buttonName: "Find Out More"
   },
   {
@@ -89,6 +89,20 @@ export const CHAT_ITEMS = [
     message: "<h2>Light Bulbs</h2><p>Discover how to dispose of used light bulbs safely and responsibly</p>",
     side: "left",
     navigationPath: "/item/lightbulbs",
+    buttonName: "Find Out More"
+  },
+  {
+    id: "PlasticBagRecycling",
+    message: "<h2>Plastic Bags</h2><p>Find out how to properly recycle or dispose of plastic bags by visiting the link below</p>",
+    side: "left",
+    navigationPath: "/item/plasticbags",
+    buttonName: "Find Out More"
+  },
+  {
+    id: "PaintCans",
+    message: "<h2>Paint Cans</h2><p>Learn how to safely dispose of paint cans using the link below</p>",
+    side: "left",
+    navigationPath: "/item/paintcans",
     buttonName: "Find Out More"
   }
 ];

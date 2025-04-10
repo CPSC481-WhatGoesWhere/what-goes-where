@@ -58,7 +58,7 @@ export const getResponseMessage = (question: string): { message: string, navigat
         "monitor", "monitors", "tv", "television", "printer", "printers", "mouse", "keyboard", "charger", "cable",
         "remote", "headphones", "earbuds", "router", "modem", "console", "controller", "stereo", "camera", "speaker"
       ],
-      responseId: "ElectronicsRecycling"
+      responseId: "BrokenElectronics"
     },
     {
       keywords: [
@@ -94,7 +94,15 @@ export const getResponseMessage = (question: string): { message: string, navigat
         "gloss", "matte", "enamel", "leftoverpaint", "paintbin"
       ],
       responseId: "PaintCans"
+    },
+    {
+      keywords: [
+        "plastic", "plastics", "bag", "bags", "wrap", "film", "ziplock", "cling", "grocerybag", "shoppingbag",
+        "straw", "straws", "wrapper", "wrappers", "saran", "polybag", "liner", "softplastic"
+      ],
+      responseId: "PlasticBagRecycling"
     }
+    
   ];
 
   // Check each group for matching keywords
