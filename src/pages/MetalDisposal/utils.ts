@@ -1,37 +1,51 @@
-import { Location } from "@/Components/LocationsMap/LocationsMap";
+import { Location, METAL } from "@/Components/LocationsMap/LocationsMap";
 import { POSTAL_CODE_REGEX } from "./constants";
 
 type LocationTableData = Location & {
-  pricePerPound: number | undefined;
+  selectedMetalPricePerPound: number | undefined;
   distance: string;
   priceDistanceRatio: string;
 };
 
 export function getMetalDepotTableRecords(
   data: Location[],
-  userPostalCode?: string
+  userPostalCode?: string,
+  selectedMetal?: METAL
 ): LocationTableData[] {
   const validPostalCode =
     userPostalCode && POSTAL_CODE_REGEX.test(userPostalCode);
+
   const res = data.map((record) => {
-    const distance = validPostalCode ? Math.random().toFixed(2) : "N/A";
+    const distance = validPostalCode ? Math.random().toFixed(2) : "N/A"; // Random distance from user postal code to location
+    const selectedMetalPrice =
+      selectedMetal &&
+      record.pricePerPound &&
+      record.pricePerPound[selectedMetal]
+        ? record.pricePerPound[selectedMetal]
+        : undefined; // Price per pound for the selected metal
     return {
       ...record,
-      pricePerPound: record.pricePerPound,
+      selectedMetalPricePerPound: selectedMetalPrice,
       distance: distance,
-      priceDistanceRatio: validPostalCode
-        ? ((record.pricePerPound ?? 0) / Number(distance)).toFixed(2)
-        : "N/A",
-    };
+      priceDistanceRatio:
+        validPostalCode && selectedMetal && selectedMetalPrice
+          ? (selectedMetalPrice / Number(distance)).toFixed(2)
+          : "N/A",
+    } as LocationTableData;
   });
 
   const sorted = res.sort((a, b) => {
-    if (!validPostalCode) {
+    if (
+      !validPostalCode ||
+      !selectedMetal ||
+      !a["pricePerPound"] ||
+      !b["pricePerPound"]
+    ) {
       return 1;
     }
     const res =
-      (b["pricePerPound"] ?? 0) / Number(b["distance"]) -
-      (a["pricePerPound"] ?? 0) / Number(a["distance"]);
+      (b["selectedMetalPricePerPound"] ?? 0) / Number(b["distance"]) -
+      (a["selectedMetalPricePerPound"] ?? 0) / Number(a["distance"]);
     return res;
   });
   return sorted;
@@ -41,7 +55,7 @@ export function formatMetalDepotTableRecord(record: LocationTableData) {
   return {
     Name: record.name,
     Address: record.address,
-    "Price Per Pound ($)": record.pricePerPound,
+    "Price Per Pound ($)": record.selectedMetalPricePerPound,
     "Distance (km)": record.distance,
     "Price/Distance Ratio": record.priceDistanceRatio,
   };
