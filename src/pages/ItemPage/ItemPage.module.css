@@ -86,3 +86,8 @@
 .listItem {
   margin-bottom: 6px;
 }
+
+.link {
+  width: 100%;
+  text-decoration: none;
+}

@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { DISPOSAL_INFO } from "./constants";
 import styles from "./ItemPage.module.css";
 import React from "react";
 import FlexBackGround from "@/Components/FlexBackGround";
 import Block from "@/Components/Block";
+import Button from "@/Components/Button";
 function ItemPage() {
   const { item } = useParams<{ item: keyof typeof DISPOSAL_INFO }>();
 
@@ -26,6 +27,13 @@ function ItemPage() {
         {data.map((item, index) => {
           const [tag, content] = Object.entries(item)[0];
 
+          if (tag === "link") {
+            return (
+              <NavLink key={index} to={content} className={styles.link}>
+                <Button>Learn more!</Button>
+              </NavLink>
+            );
+          }
           if (tag === "ul" || tag === "ol") {
             const ListTag = tag;
             return (

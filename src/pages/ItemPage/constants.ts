@@ -35,6 +35,7 @@ export const DISPOSAL_INFO = {
         },
       ],
     },
+    { link: "/clothing-donations" },
   ],
 
   brokentoys: [
@@ -182,6 +183,7 @@ export const DISPOSAL_INFO = {
     {
       p: "Recycling glass saves energy and reduces the need for raw materials. Most curbside recycling programs accept glass bottles.",
     },
+    { link: "/bottle-depot" },
   ],
 
   plasticbags: [
@@ -270,5 +272,498 @@ export const DISPOSAL_INFO = {
     {
       p: "Recycling paint cans ensures that the materials do not end up in landfills or harm the environment.",
     },
+  ],
+
+  sponges: [
+    { h1: "Used Sponges" },
+    {
+      p: "Kitchen sponges are commonly used for cleaning but can harbor bacteria and degrade over time.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Traditional sponges are made from synthetic materials that are not biodegradable and contribute to landfill waste.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "🧼 <b>Compost:</b> If you use natural sponges (like cellulose), you can compost them when they’re no longer usable.",
+        },
+        {
+          li: "🗑️ <b>Trash:</b> Synthetic sponges should be disposed of in regular waste if no recycling is available.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Some companies offer mail-in recycling programs for synthetic sponges, though this is still rare.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>Switch:</b> Try reusable dish cloths or compostable alternatives to reduce waste.",
+        },
+        {
+          li: "🧪 <b>Sanitize:</b> Extend a sponge’s life by microwaving or boiling to kill germs.",
+        },
+      ],
+    },
+  ],
+  packingpeanuts: [
+    { h1: "Packing Peanuts" },
+    {
+      p: "Lightweight fillers used in shipping boxes to protect fragile items during transit.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Traditional styrofoam peanuts do not break down and can pollute waterways and harm animals if not disposed of properly.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "📦 <b>Reuse:</b> Save and reuse them for future packaging needs.",
+        },
+        {
+          li: "📮 <b>Drop-off:</b> Some shipping stores accept clean, used peanuts for reuse.",
+        },
+        {
+          li: "🗑️ <b>Landfill:</b> Non-biodegradable types must be thrown away if no reuse options are available.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Check with local shipping or packaging companies—some accept clean, dry packing peanuts for reuse.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "🌽 <b>Biodegradable:</b> Look for cornstarch-based peanuts that dissolve in water and are compostable.",
+        },
+        {
+          li: "🔍 <b>Test It:</b> Biodegradable peanuts dissolve in water, unlike styrofoam ones.",
+        },
+      ],
+    },
+  ],
+  expiredmakeup: [
+    { h1: "Expired Makeup" },
+    {
+      p: "Cosmetics have shelf lives and can become unsafe or ineffective once expired.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Makeup contains chemicals and microplastics that can contaminate water and soil if thrown out improperly.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "🚮 <b>Trash:</b> Most expired makeup must be thrown in the garbage unless otherwise labeled.",
+        },
+        {
+          li: "📦 <b>Return:</b> Some brands accept used or expired products through mail-in recycling programs.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Packaging like glass bottles or plastic tubes may be recyclable. Check symbols and rinse thoroughly before recycling.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>TerraCycle:</b> Participate in brand-sponsored recycling programs for cosmetics.",
+        },
+        {
+          li: "⏳ <b>Label:</b> Mark open dates on products to help track expiry.",
+        },
+      ],
+    },
+  ],
+  balloons: [
+    { h1: "Party Balloons" },
+    {
+      p: "Balloons add fun to celebrations, but they pose risks to wildlife and the environment if not disposed of properly.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Latex and foil balloons can end up in oceans or landfills, where animals may mistake them for food or become entangled.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "🗑️ <b>Trash:</b> Deflate and cut up balloons before disposing in the garbage—never release them outdoors.",
+        },
+        {
+          li: "♻️ <b>Recycle (Foil Only):</b> Some mylar/foil balloons can be recycled with specific programs.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Check with local recycling facilities—some accept mylar balloons, though most require landfill disposal.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "🪄 <b>Reuse:</b> Mylar balloons can often be reinflated and reused.",
+        },
+        {
+          li: "🌱 <b>Eco Alternatives:</b> Consider using fabric decorations or paper garlands instead of balloons.",
+        },
+      ],
+    },
+  ],
+  pizzaboxes: [
+    { h1: "Pizza Boxes" },
+    {
+      p: "Cardboard pizza boxes often contain grease and food residue, which can affect whether or not they are recyclable.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Contaminated paper products can spoil batches of recycling and reduce overall efficiency in recycling facilities.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>Recycle:</b> If the box is clean or only slightly greasy, recycle it with cardboard.",
+        },
+        {
+          li: "🗑️ <b>Trash:</b> If soaked in grease or cheese, dispose of the soiled parts in the garbage.",
+        },
+        {
+          li: "🪱 <b>Compost:</b> Tear greasy parts into small pieces and add to a compost pile if available.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Many municipalities allow recycling of slightly greasy boxes—check with your local guidelines.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "✂️ <b>Separate:</b> Tear off the clean lid to recycle and compost or trash the greasy base.",
+        },
+        {
+          li: "🔥 <b>Firestarter:</b> Use dry, clean box parts as kindling in a fireplace or campfire.",
+        },
+      ],
+    },
+  ],
+  disposablerazors: [
+    { h1: "Disposable Razors" },
+    {
+      p: "Single-use razors are commonly used for shaving but are often made from mixed materials that make recycling difficult.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "These razors contribute to plastic pollution and often contain metal blades that can be hazardous in landfills.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "🔄 <b>Take-Back:</b> Some brands offer recycling mail-back programs for their used razors.",
+        },
+        {
+          li: "🗑️ <b>Trash:</b> If no recycling is available, wrap used razors in paper before placing them in the garbage to avoid injury.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "TerraCycle partners with some razor brands to provide zero-waste boxes for safe recycling of razors and blades.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>Switch:</b> Consider reusable safety razors to reduce long-term waste.",
+        },
+        {
+          li: "🧼 <b>Care:</b> Dry your razor after use to extend its lifespan.",
+        },
+      ],
+    },
+  ],
+  coffeepods: [
+    { h1: "Coffee Pods" },
+    {
+      p: "Single-serve coffee pods offer convenience but often result in plastic and aluminum waste.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Many coffee pods aren’t biodegradable and contribute to landfill overload unless properly separated and recycled.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>Recycle:</b> Look for pods labeled as recyclable and separate the components before disposing.",
+        },
+        {
+          li: "📦 <b>Mail-In:</b> Some brands offer recycling programs or partnerships with TerraCycle.",
+        },
+        {
+          li: "🗑️ <b>Trash:</b> Non-recyclable pods should go in the trash.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Check if your local facility accepts coffee pods and be sure to clean out grounds before recycling.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "☕ <b>Refillable Options:</b> Switch to reusable pods compatible with your machine.",
+        },
+        {
+          li: "🌱 <b>Compost Grounds:</b> Empty used coffee grounds into a compost bin before disposal.",
+        },
+      ],
+    },
+  ],
+  toiletpaperrolls: [
+    { h1: "Toilet Paper Rolls" },
+    {
+      p: "Cardboard toilet paper tubes are leftover from daily hygiene use and can easily be repurposed or recycled.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Though recyclable, many cardboard tubes are still thrown away, adding unnecessary waste to landfills.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>Recycle:</b> Place empty cardboard rolls in your paper recycling bin.",
+        },
+        {
+          li: "🎨 <b>Reuse:</b> Great for DIY crafts, seed starters, or cable organizers.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Cardboard is widely accepted in curbside recycling programs. Flatten rolls to save space.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "🌱 <b>Compost:</b> Rolls can be composted as brown matter in home compost bins.",
+        },
+        {
+          li: "📦 <b>Bulk Save:</b> Collect rolls for school craft projects or donations.",
+        },
+      ],
+    },
+  ],
+  phonechargers: [
+    { h1: "Old Phone Chargers" },
+    {
+      p: "Outdated or broken chargers often pile up in drawers and should be handled properly due to their electronic components.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Chargers contain metals and plastic that shouldn't be tossed in the trash due to environmental hazards.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>e-Waste Recycling:</b> Take them to electronic recycling centers or drop-off bins.",
+        },
+        {
+          li: "📦 <b>Retail Return:</b> Stores like Best Buy and Staples often accept chargers for recycling.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Many cities host electronic waste events where you can drop off cables and small electronics for safe disposal.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "🔌 <b>Donate:</b> Some shelters and schools accept working chargers for reuse.",
+        },
+        {
+          li: "📥 <b>Organize:</b> Use labeled boxes to sort and store spare cables instead of tossing them.",
+        },
+      ],
+    },
+  ],
+  usedcandles: [
+    { h1: "Used Candles" },
+    {
+      p: "After a candle burns down, leftover wax and containers are often tossed—yet they can be reused or recycled.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Glass jars, metal tins, and certain waxes take years to break down. Reusing them helps reduce single-use waste.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "🫙 <b>Reuse:</b> Clean jars and tins for use as storage or new candles.",
+        },
+        {
+          li: "♻️ <b>Recycle:</b> Glass and metal containers can go in recycling after wax is removed.",
+        },
+        {
+          li: "🗑️ <b>Trash:</b> Non-recyclable or mixed-material containers should go in the trash.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Soften leftover wax in warm water or the microwave, then scrape it out before recycling the container.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "🕯️ <b>Remelt:</b> Combine leftover wax to make a new candle.",
+        },
+        {
+          li: "🧽 <b>Clean:</b> Use warm soapy water to clean containers for crafts or storage.",
+        },
+      ],
+    },
+  ],
+  aluminumcans: [
+    { h1: "Aluminum Cans" },
+    {
+      p: "Commonly used for soda and canned foods, aluminum cans are one of the most recyclable household items.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Recycling aluminum saves up to 95% of the energy required to make new cans and reduces mining-related environmental damage.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>Recycle:</b> Rinse and place aluminum cans in your curbside recycling bin or take them to a local depot.",
+        },
+        {
+          li: "💵 <b>Deposit Refund:</b> In some areas, you can return cans for cash through bottle deposit programs.",
+        },
+        {
+          li: "🗑️ <b>Trash:</b> Only if the can is heavily contaminated or not accepted locally—check your area’s guidelines.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Aluminum can be recycled infinitely without losing quality. Many facilities prioritize it due to its high value.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "🧽 <b>Rinse:</b> Quickly rinse cans to avoid attracting pests and reduce contamination.",
+        },
+        {
+          li: "📦 <b>Crush:</b> Flattening cans can save space in bins and bags.",
+        },
+      ],
+    },
+    { link: "/bottle-depot" },
+  ],
+  oldfurniture: [
+    { h1: "Old Furniture" },
+    {
+      p: "Bulky and heavy, old furniture can be a challenge to dispose of responsibly but has several options beyond the landfill.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Furniture waste takes up significant landfill space and often includes wood, foam, and synthetic materials that take decades to break down.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "🏠 <b>Donate:</b> If still usable, donate to shelters, thrift stores, or community furniture banks.",
+        },
+        {
+          li: "🚚 <b>Hire Removal:</b> Use a junk removal service to haul away large pieces—they often sort and recycle items.",
+        },
+        {
+          li: "♻️ <b>Recycle:</b> Break down furniture into components (metal, wood, fabric) and take them to local recycling facilities.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Many municipalities offer bulky item pickup days or recycling drop-off points for wood, metal, and upholstery.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "🪑 <b>Repurpose:</b> Turn old chairs or tables into garden furniture or art projects.",
+        },
+        {
+          li: "🔧 <b>Repair:</b> Sometimes a small fix can give furniture a second life.",
+        },
+      ],
+    },
+    { link: "/junk-removal" },
+  ],
+  copperwires: [
+    { h1: "Copper Wires" },
+    {
+      p: "Found in old electronics, cables, and appliances, copper wires are highly recyclable and valuable.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Throwing copper into the trash wastes a finite resource and contributes to electronic waste pollution.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>Scrap Yards:</b> Strip and sort copper wires to sell to local metal recycling centers.",
+        },
+        {
+          li: "📦 <b>E-Waste:</b> Take bundled wires to e-waste recycling facilities or community collection events.",
+        },
+        {
+          li: "🗑️ <b>Trash:</b> Avoid unless wires are mixed with unrecyclable materials like plastic casings filled with glue or foam.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Copper is 100% recyclable and can be reused endlessly. Clean, stripped wire fetches higher prices at recycling centers.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "🧰 <b>Strip First:</b> Use a wire stripper to remove insulation before recycling for maximum value.",
+        },
+        {
+          li: "🪙 <b>Sort Metals:</b> Separate copper from aluminum or steel wires before recycling.",
+        },
+      ],
+    },
+    { link: "/metal-disposal" },
   ],
 };
