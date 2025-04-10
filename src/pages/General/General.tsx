@@ -1,4 +1,3 @@
-
 // General.tsx
 import { useEffect, useState } from "react";
 import { storeInSession, fetchFromSession } from "@/functions/sessionStorageHelpers";
@@ -11,10 +10,18 @@ import Button from "@/Components/Button";
 import ChatList, { ChatItem } from "./ChatList/ChatList";
 import Spacer from "@/Components/Spacer";
 import { CHAT_ITEMS } from "./constants";
+import styles from "./General.module.css";
 
 function General() {
   const [chatItems, setChatItems] = useState<ChatItem[]>([]);
   const [chatQuestion, setChatQuestion] = useState("");
+
+  const exampleQuestions = [
+    "Where do I throw out batteries?",
+    "How do I recycle metal?",
+    "Where can I donate clothes?",
+    "What is the nearest bottle depot?",
+  ];
 
   // On mount, retrieve chat items from session storage.
   useEffect(() => {
@@ -75,11 +82,44 @@ function General() {
     }
   };
 
+  const handleExampleQuestionClick = (question: string) => {
+    setChatQuestion(question);
+    handleButtonClick();
+  };
+
   return (
     <FlexBackGround style={{ paddingTop: "0px" }}>
-      {/* Render the chat list based on session storage */}
-      <ChatList items={chatItems} />
-      <Spacer height={10} />
+      {chatItems.length === 0 ? (
+        // Render the empty state layout
+        <>
+          <FlexRow style={{ flex: "none", padding: "0px" }}>
+            <Block style={{ height: "100%", maxWidth: "70%" }}>
+              <h2 className={styles.welcomeHeader}>
+                Welcome! Here are some questions you can ask:
+              </h2>
+              <div className={styles.exampleQuestionsList}>
+                {exampleQuestions.map((question, index) => (
+                  <div className={styles.exampleQuestionsList}>
+                    <Button
+                      key={index}
+                      onClick={() => handleExampleQuestionClick(question)}
+                      dark={false}
+                    >
+                      {question}
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </Block>
+          </FlexRow>
+        </>
+      ) : (
+        // Render the chat list when there are chat items
+        <>
+          <ChatList items={chatItems} />
+        </>
+      )}
+      <Spacer height={20} />
       <FlexRow style={{ flex: "none", padding: "0px" }}>
         <Block style={{ height: "100%", maxWidth: "70%" }}>
           <FlexRow style={{ flex: "none", padding: "0px" }}>
