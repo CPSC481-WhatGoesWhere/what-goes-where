@@ -31,13 +31,8 @@ function General() {
     }
   }, []);
 
-  // Function to add chat items based on the input.
-  const handleButtonClick = () => {
-    if (!chatQuestion.trim()) return;
-
-    // Wrap the user's question in <p></p>
-    const userMessage = `<p>${chatQuestion}</p>`;
-    const lowerCaseQuestion = chatQuestion.toLowerCase();
+  const getResponseMessage = (question: string): string => {
+    const lowerCaseQuestion = question.toLowerCase();
     let selectedItem = CHAT_ITEMS.find((item) => item.id === "InvalidSubject");
 
     if (lowerCaseQuestion.includes("bottle depot")) {
@@ -50,10 +45,13 @@ function General() {
       selectedItem = CHAT_ITEMS.find((item) => item.id === "JunkRemoval");
     }
 
-    // Fallback in case selectedItem is undefined (shouldn't happen if constants are correct)
-    const responseMessage = selectedItem ? selectedItem.message : "";
+    return selectedItem ? selectedItem.message : "";
+  };
 
-    // Create two new chat items:
+  const addChatItems = (question: string) => {
+    const userMessage = `<p>${question}</p>`;
+    const responseMessage = getResponseMessage(question);
+
     const newChatItems: ChatItem[] = [
       {
         id: Date.now().toString() + "-right",
@@ -70,8 +68,12 @@ function General() {
     const updatedChats = [...chatItems, ...newChatItems];
     setChatItems(updatedChats);
     storeInSession("chatItems", updatedChats);
+  };
+
+  const handleButtonClick = () => {
+    if (!chatQuestion.trim()) return;
+    addChatItems(chatQuestion);
     setChatQuestion(""); // Clear the input after submitting.
-    console.log("Chat items updated.");
   };
 
   // Handle pressing Enter in the TextInput.
@@ -83,8 +85,7 @@ function General() {
   };
 
   const handleExampleQuestionClick = (question: string) => {
-    setChatQuestion(question);
-    handleButtonClick();
+    addChatItems(question);
   };
 
   return (
@@ -99,15 +100,15 @@ function General() {
               </h2>
               <div className={styles.exampleQuestionsList}>
                 {exampleQuestions.map((question, index) => (
-                  <div className={styles.exampleQuestionsList}>
-                    <Button
-                      key={index}
-                      onClick={() => handleExampleQuestionClick(question)}
-                      dark={false}
-                    >
-                      {question}
-                    </Button>
-                  </div>
+<div className={styles.exampleQuestionsList}>
+                  <Button
+                    key={index}
+                    onClick={() => handleExampleQuestionClick(question)}
+                    dark={false}
+                  >
+                    {question}
+                  </Button>
+</div>
                 ))}
               </div>
             </Block>
