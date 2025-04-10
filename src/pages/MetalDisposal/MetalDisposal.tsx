@@ -3,11 +3,7 @@ import styles from "./MetalDisposal.module.css";
 import LocationsMap from "@/Components/LocationsMap";
 import { useState } from "react";
 import { Location, METAL } from "@/Components/LocationsMap/LocationsMap";
-import {
-  METAL_RECYCLING_DEPOTS,
-  METAL_TYPES,
-  POSTAL_CODE_REGEX_STR,
-} from "./constants";
+import { METAL_RECYCLING_DEPOTS, METAL_TYPES } from "./constants";
 import FlexBackGround from "@/Components/FlexBackGround";
 import Block from "@/Components/Block";
 import Table from "@/Components/Table";
@@ -26,6 +22,39 @@ function MetalDisposal() {
   const [selectedMetal, setSelectedMetal] = useState<string | undefined>(
     METAL_TYPES[0].value
   );
+
+  const handlePostalCodeChange = (input: string) => {
+    const cleanedInput = input.toUpperCase().replace(/[^A-Z0-9]/g, "");
+    let formatted = "";
+
+    for (let i = 0; i < cleanedInput.length && i < 6; i++) {
+      const char = cleanedInput[i];
+
+      if (i % 2 === 0) {
+        // Positions 0, 2, 4: letters only
+        if (/[A-Z]/.test(char)) {
+          formatted += char;
+        } else {
+          break;
+        }
+      } else {
+        // Positions 1, 3, 5: digits only
+        if (/[0-9]/.test(char)) {
+          formatted += char;
+        } else {
+          break;
+        }
+      }
+
+      // Automatically insert space after third character
+      if (formatted.length === 3) {
+        formatted += " ";
+      }
+    }
+
+    setPostalCode(formatted);
+  };
+
   const tableRowSelect = (row: Location) => {
     document.getElementById("map")?.scrollIntoView({
       behavior: "smooth",
@@ -55,10 +84,9 @@ function MetalDisposal() {
               </span>
               <div style={{ width: "200px" }}>
                 <TextInput
-                  pattern={POSTAL_CODE_REGEX_STR}
                   className={styles.postalCodeInput}
                   value={postalCode}
-                  onChange={setPostalCode}
+                  onChange={handlePostalCodeChange}
                   placeholder="E.g. A1A 1A1"
                 />
               </div>
