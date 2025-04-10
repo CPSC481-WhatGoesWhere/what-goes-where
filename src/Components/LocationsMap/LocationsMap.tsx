@@ -5,6 +5,9 @@ import Button from "../Button";
 import TextInput from "../TextInput";
 import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
+import FlexRow from "../FlexRow";
+import Select from "../Select";
+import { METAL_TYPES } from "@/pages/MetalDisposal/constants";
 
 // Fix missing Leaflet marker icons in Vite
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -54,6 +57,9 @@ function OperatingHours({ hours }: { hours: Location["hours"] }) {
 
 function LocationRefundDetails({ location }: { location: Location }) {
   const [pounds, setPounds] = useState<number | undefined>(undefined);
+  const [selectedMetal, setSelectedMetal] = useState<string | undefined>(
+    METAL_TYPES[0].value
+  );
   if (!location.pricePerPound) {
     return null;
   }
@@ -72,8 +78,16 @@ function LocationRefundDetails({ location }: { location: Location }) {
         </ul>
       </div>
       <h4>Cash Refund Estimation</h4>
+      <FlexRow style={{ justifyContent: "flex-start", paddingLeft: 0 }}>
+        <span>Select the metal you want to recycle:</span>
+        <Select
+          options={METAL_TYPES}
+          selectedValue={selectedMetal}
+          setSelectedValue={setSelectedMetal}
+        />
+      </FlexRow>
       <label>
-        Enter the number of pounds of metal you have:
+        Enter the number of pounds of {selectedMetal} you have:
         <TextInput
           type="number"
           placeholder="LBS"
@@ -83,7 +97,9 @@ function LocationRefundDetails({ location }: { location: Location }) {
       </label>
       <p>
         Estimated Refund: $
-        {/* {pounds ? (pounds * location.pricePerPound).toFixed(2) : "0.00"} */}
+        {pounds && selectedMetal
+          ? (pounds * location.pricePerPound[selectedMetal as METAL]).toFixed(2)
+          : "0.00"}
       </p>
     </>
   );

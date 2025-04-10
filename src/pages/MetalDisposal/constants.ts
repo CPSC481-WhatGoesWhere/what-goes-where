@@ -4,6 +4,13 @@ export const POSTAL_CODE_REGEX_STR =
 export const POSTAL_CODE_REGEX =
   /^[ABCEGHJ-NPRSTVXY][1234567890][ABCEGHJ-NPRSTVXY] [1234567890][ABCEGHJ-NPRSTVWXYZ][1234567890]$/;
 
+export const METAL_TYPES = [
+  { value: "aluminum", label: "Aluminum" },
+  { value: "copper", label: "Copper" },
+  { value: "steel", label: "Steel" },
+  { value: "brass", label: "Brass" },
+];
+
 export const METAL_RECYCLING_DEPOTS = [
   {
     id: 1,
