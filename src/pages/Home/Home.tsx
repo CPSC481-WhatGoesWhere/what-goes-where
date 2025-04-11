@@ -16,7 +16,7 @@ import MetalRecyclingIMG from "../../assets/metal-money.png";
 import JunkRemovalIMG from "../../assets/trash-truck.png";
 import { CHAT_ITEMS } from "@/pages/General/constants";
 import { ChatItem } from "@/pages/General/ChatList/ChatList";
-import { storeInSession } from "@/functions/sessionStorageHelpers";
+import { storeInSession, fetchFromSession } from "@/functions/sessionStorageHelpers";
 import { getResponseMessage } from "@/pages/General/responseHelpers";
 
 
@@ -51,7 +51,10 @@ function Home() {
       },
     ];
 
-    const updatedChats = [...chatItems, ...newChatItems];
+    // Fetch existing chat items from session storage
+    const existingChats = fetchFromSession<ChatItem[]>("chatItems") || [];
+    const updatedChats = [...existingChats, ...newChatItems];
+
     setChatItems(updatedChats);
     storeInSession("chatItems", updatedChats);
     setChatQuestion(""); // Clear the input after submitting.
