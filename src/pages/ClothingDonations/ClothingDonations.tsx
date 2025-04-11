@@ -40,7 +40,7 @@ function ClothingDonations() {
                 dark={false}
                 containerStyle={{maxWidth: "40%"}}
               >
-                Copper Wires
+                Old Clothes
               </Button>
             </FlexRow>
           </Block>
