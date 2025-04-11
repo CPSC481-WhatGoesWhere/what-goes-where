@@ -14,7 +14,6 @@ import ClothingDonationIMG from "../../assets/clothing.png";
 import BottleDepotIMG from "../../assets/bottles.png";
 import MetalRecyclingIMG from "../../assets/metal-money.png";
 import JunkRemovalIMG from "../../assets/trash-truck.png";
-import { CHAT_ITEMS } from "@/pages/General/constants";
 import { ChatItem } from "@/pages/General/ChatList/ChatList";
 import { storeInSession, fetchFromSession } from "@/functions/sessionStorageHelpers";
 import { getResponseMessage } from "@/pages/General/responseHelpers";
@@ -23,8 +22,7 @@ import { getResponseMessage } from "@/pages/General/responseHelpers";
 function Home() {
   const navigate = useNavigate();
 
-  const [chatQuestion, setChatQuestion] = useState("")
-  const [chatItems, setChatItems] = useState<ChatItem[]>([]);
+  const [chatQuestion, setChatQuestion] = useState("");
 
   
   // Function to add chat items based on the input.
@@ -55,7 +53,6 @@ function Home() {
     const existingChats = fetchFromSession<ChatItem[]>("chatItems") || [];
     const updatedChats = [...existingChats, ...newChatItems];
 
-    setChatItems(updatedChats);
     storeInSession("chatItems", updatedChats);
     setChatQuestion(""); // Clear the input after submitting.
     console.log("Chat items updated.");
