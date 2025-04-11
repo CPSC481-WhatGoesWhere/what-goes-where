@@ -166,22 +166,40 @@ export const DISPOSAL_INFO = {
   glassbottles: [
     { h1: "Glass Bottles" },
     {
-      p: "Glass bottles are widely recyclable and can be reused multiple times without degrading in quality.",
+      p: "Durable and reusable, glass bottles are 100% recyclable and can be turned into new glass products endlessly without losing quality.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "When sent to landfills, glass takes thousands of years to break down. Recycling glass conserves raw materials and energy while reducing pollution.",
     },
     { h2: "Disposal Options" },
     {
       ul: [
         {
-          li: "♻️ <b>Recycle:</b> Glass bottles should be placed in your recycling bin. Make sure they're clean and free of any food residue.",
+          li: "♻️ <b>Recycle:</b> Most curbside programs accept clean glass bottles—separate by color if required in your area.",
         },
         {
-          li: "🛑 <b>Landfill:</b> Do not throw glass bottles in the regular trash as they are recyclable.",
+          li: "🏪 <b>Bottle Deposit:</b> Return refundable glass bottles to a local bottle depot for cash back where applicable.",
+        },
+        {
+          li: "🏡 <b>Reuse:</b> Repurpose glass bottles as storage containers, vases, or decor around the home.",
         },
       ],
     },
     { h2: "Recycling Information" },
     {
-      p: "Recycling glass saves energy and reduces the need for raw materials. Most curbside recycling programs accept glass bottles.",
+      p: "Remove caps and rinse bottles before recycling. Labels can usually stay on. Some municipalities have dedicated bins or drop-off points for glass.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "🧼 <b>Clean First:</b> Leftover food or drink can contaminate glass recycling loads.",
+        },
+        {
+          li: "🚫 <b>Avoid Mixing:</b> Don’t mix broken glass or non-bottle glass (like windows or mirrors) with recyclables—they’re treated differently.",
+        },
+      ],
     },
     { link: "/bottle-depot" },
   ],
@@ -686,6 +704,47 @@ export const DISPOSAL_INFO = {
     },
     { link: "/bottle-depot" },
   ],
+  plasticbottles: [
+    { h1: "Plastic Bottles" },
+    {
+      p: "Lightweight and everywhere, plastic bottles are one of the most common household waste items—but they can and should be recycled properly.",
+    },
+    { h2: "Why Proper Disposal Matters" },
+    {
+      p: "Plastic bottles take hundreds of years to decompose and often end up polluting oceans and harming wildlife. Recycling helps reduce pollution and saves resources.",
+    },
+    { h2: "Disposal Options" },
+    {
+      ul: [
+        {
+          li: "♻️ <b>Recycle:</b> Rinse bottles and place them in your curbside recycling bin if accepted in your area.",
+        },
+        {
+          li: "🏪 <b>Deposit Return:</b> In some provinces, return bottles to a bottle depot for a refund.",
+        },
+        {
+          li: "🚮 <b>Trash (last resort):</b> Only if not recyclable—some plastic types or contaminated bottles may need to be discarded.",
+        },
+      ],
+    },
+    { h2: "Recycling Information" },
+    {
+      p: "Check the recycling symbol and number on the bottom of the bottle. Most are #1 (PET) or #2 (HDPE), which are widely accepted. Lids can usually be recycled too—check locally.",
+    },
+    { h2: "Additional Tips" },
+    {
+      ul: [
+        {
+          li: "💧 <b>Empty & Rinse:</b> Clean bottles are more likely to be recycled and won’t contaminate other recyclables.",
+        },
+        {
+          li: "🧴 <b>Reuse:</b> Repurpose for watering plants, crafts, or storage.",
+        },
+      ],
+    },
+    { link: "/bottle-depot" },
+  ],
+
   oldfurniture: [
     { h1: "Old Furniture" },
     {
