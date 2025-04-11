@@ -1,4 +1,3 @@
-
 // Home.tsx
 
 import Block from "@/Components/Block/Block";
@@ -15,16 +14,15 @@ import ClothingDonationIMG from "../../assets/clothing.png";
 import BottleDepotIMG from "../../assets/bottles.png";
 import MetalRecyclingIMG from "../../assets/metal-money.png";
 import JunkRemovalIMG from "../../assets/trash-truck.png";
-import { CHAT_ITEMS } from "@/pages/General/constants";
 import { ChatItem } from "@/pages/General/ChatList/ChatList";
-import { storeInSession } from "@/functions/sessionStorageHelpers";
+import { storeInSession, fetchFromSession } from "@/functions/sessionStorageHelpers";
+import { getResponseMessage } from "@/pages/General/responseHelpers";
 
 
 function Home() {
   const navigate = useNavigate();
 
-  const [chatQuestion, setChatQuestion] = useState("")
-  const [chatItems, setChatItems] = useState<ChatItem[]>([]);
+  const [chatQuestion, setChatQuestion] = useState("");
 
   
   // Function to add chat items based on the input.
@@ -33,21 +31,7 @@ function Home() {
 
     // Wrap the user's question in <p></p>
     const userMessage = `<p>${chatQuestion}</p>`;
-    const lowerCaseQuestion = chatQuestion.toLowerCase();
-    let selectedItem = CHAT_ITEMS.find((item) => item.id === "InvalidSubject");
-
-    if (lowerCaseQuestion.includes("bottle depot")) {
-      selectedItem = CHAT_ITEMS.find((item) => item.id === "BottleDepot");
-    } else if (lowerCaseQuestion.includes("clothing donation")) {
-      selectedItem = CHAT_ITEMS.find((item) => item.id === "ClothingDonation");
-    } else if (lowerCaseQuestion.includes("metal recycling")) {
-      selectedItem = CHAT_ITEMS.find((item) => item.id === "MetalRecycling");
-    } else if (lowerCaseQuestion.includes("junk removal")) {
-      selectedItem = CHAT_ITEMS.find((item) => item.id === "JunkRemoval");
-    }
-
-    // Fallback in case selectedItem is undefined (shouldn't happen if constants are correct)
-    const responseMessage = selectedItem ? selectedItem.message : "";
+    const { message: responseMessage, navigationPath, buttonName } = getResponseMessage(chatQuestion);
 
     // Create two new chat items:
     const newChatItems: ChatItem[] = [
@@ -60,15 +44,19 @@ function Home() {
         id: Date.now().toString() + "-left",
         message: responseMessage,
         side: "left",
+        navigationPath: navigationPath ?? undefined,
+        buttonName: buttonName ?? undefined,
       },
     ];
 
-    const updatedChats = [...chatItems, ...newChatItems];
-    setChatItems(updatedChats);
+    // Fetch existing chat items from session storage
+    const existingChats = fetchFromSession<ChatItem[]>("chatItems") || [];
+    const updatedChats = [...existingChats, ...newChatItems];
+
     storeInSession("chatItems", updatedChats);
     setChatQuestion(""); // Clear the input after submitting.
     console.log("Chat items updated.");
-    navigate('/general')
+    navigate('/general');
   };
 
   // Handle pressing Enter in the TextInput.
