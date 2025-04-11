@@ -5,6 +5,7 @@ import React from "react";
 import FlexBackGround from "@/Components/FlexBackGround";
 import Block from "@/Components/Block";
 import Button from "@/Components/Button";
+import ScrollList from "@/Components/ScrollList";
 function ItemPage() {
   const { item } = useParams<{ item: keyof typeof DISPOSAL_INFO }>();
 
@@ -16,46 +17,48 @@ function ItemPage() {
 
   return (
     <FlexBackGround>
-      <Block
-        style={{
-          alignContent: "center",
-          justifyContent: "center",
-          flex: "none",
-          alignItems: "flex-start",
-        }}
-      >
-        {data.map((item, index) => {
-          const [tag, content] = Object.entries(item)[0];
+      <ScrollList style={{ width: "100%", maxWidth: "800px", padding: "1rem" }}>
+        <Block
+          style={{
+            alignContent: "center",
+            justifyContent: "center",
+            flex: "none",
+            alignItems: "flex-start",
+          }}
+        >
+          {data.map((item, index) => {
+            const [tag, content] = Object.entries(item)[0];
 
-          if (tag === "link") {
-            return (
-              <NavLink key={index} to={content} className={styles.link}>
-                <Button>Learn more!</Button>
-              </NavLink>
-            );
-          }
-          if (tag === "ul" || tag === "ol") {
-            const ListTag = tag;
-            return (
-              <ListTag key={index} className={styles.list}>
-                {content.map((liItem: { li: string }, liIndex: number) => (
-                  <li
-                    key={liIndex}
-                    className={styles.listItem}
-                    dangerouslySetInnerHTML={{ __html: liItem.li }}
-                  />
-                ))}
-              </ListTag>
-            );
-          }
+            if (tag === "link") {
+              return (
+                <NavLink key={index} to={content} className={styles.link}>
+                  <Button>Learn more!</Button>
+                </NavLink>
+              );
+            }
+            if (tag === "ul" || tag === "ol") {
+              const ListTag = tag;
+              return (
+                <ListTag key={index} className={styles.list}>
+                  {content.map((liItem: { li: string }, liIndex: number) => (
+                    <li
+                      key={liIndex}
+                      className={styles.listItem}
+                      dangerouslySetInnerHTML={{ __html: liItem.li }}
+                    />
+                  ))}
+                </ListTag>
+              );
+            }
 
-          return React.createElement(
-            tag,
-            { key: index, className: styles[tag] || styles.paragraph },
-            <span dangerouslySetInnerHTML={{ __html: content }} />
-          );
-        })}
-      </Block>
+            return React.createElement(
+              tag,
+              { key: index, className: styles[tag] || styles.paragraph },
+              <span dangerouslySetInnerHTML={{ __html: content }} />
+            );
+          })}
+        </Block>
+      </ScrollList>
     </FlexBackGround>
   );
 }
