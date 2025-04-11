@@ -17,129 +17,210 @@ Project description
 
 ## Chatbot Testing Script
 
-You can use the following sample questions to verify that the chatbot correctly identifies each category. These cover synonyms, plurals, and varied sentence structures.
+# Chatbot Testing Script – What Goes Where
 
-<details>
-<summary><strong>📦 Bottle Depot</strong></summary>
+You can use the following sample prompts to verify that the chatbot correctly identifies each category. These test pluralization, synonyms, and phrasing variety.
 
-- Where can I return my bottles?
-- How do I recycle soda cans?
-- Where do I dispose of pop cans?
-- Can I take juice boxes to the bottle depot?
-- I have a lot of beer bottles — what do I do?
-- What do I do with drink cans and milk jugs?
+---
 
-</details>
+## 📦 Bottle Depot
 
-<details>
-<summary><strong>👕 Clothing Donation</strong></summary>
+- Where can I return my bottles and cans?
+- Can I recycle soda bottles and juice boxes?
+- How do I get a refund for drink containers?
 
-- Where can I throw out my clothes?
-- How do I donate jackets and boots?
-- What should I do with old pants and socks?
-- Can I recycle underwear and scarves?
-- Where's the nearest thrift donation bin?
-- I want to donate sweaters and blouses.
+---
 
-</details>
+## 👕 Clothing Donation
 
-<details>
-<summary><strong>🔩 Metal Recycling</strong></summary>
+- I want to donate old clothes and shoes.
+- Where’s the bin for used jackets and pants?
+- What to do with second-hand sweaters and socks?
 
-- Where do I recycle metal?
-- I have old bolts and nails — how do I dispose of them?
-- Can I recycle a steel rod and some copper wires?
-- What to do with aluminum scrap and iron plates?
+---
 
-</details>
+## 🔩 Metal Recycling
 
-<details>
-<summary><strong>🛋️ Junk Removal</strong></summary>
+- What to do with copper pipes and screws?
+- I have scrap aluminum and metal brackets — where do they go?
+- Can I recycle a steel bar and some bolts?
 
-- I need to get rid of an old couch and mattress.
-- How do I dispose of a broken table and carpet?
-- What can I do with my junk furniture?
-- Is there a pickup service for big trash like appliances?
+---
 
-</details>
+## 🛋️ Junk Removal
 
-<details>
-<summary><strong>🔋 Battery Disposal</strong></summary>
+- How do I get rid of my old couch and dresser?
+- I need help disposing of bulky items like a bed frame.
+- What’s the best way to toss out furniture and appliances?
 
-- Where can I throw away used batteries?
-- How do I dispose of AA and AAA batteries?
-- What do I do with a lithium coin cell?
-- Are rechargeable batteries recyclable?
+---
 
-</details>
+## 🔋 Used Batteries
 
-<details>
-<summary><strong>🛍️ Plastic Bags</strong></summary>
+- Where do I dispose of AA and AAA batteries?
+- Can I recycle lithium and button cell batteries?
+- What to do with rechargeable tool batteries?
 
-- Where do I throw away plastic bags?
-- Can I recycle cling film or grocery bags?
-- Is there a bin for soft plastics and ziplocks?
-- What about sandwich bags and straws?
+---
 
-</details>
+## 🛍️ Plastic Bags
 
-<details>
-<summary><strong>💻 Broken Electronics</strong></summary>
+- Can I recycle grocery bags and cling film?
+- Where do I put sandwich bags and ziplocks?
+- Is there a bin for bread bags and soft plastic?
 
-- How do I get rid of an old TV and a broken printer?
-- Where can I dispose of e-waste like a laptop?
-- Can I recycle my old phone and charger?
-- What to do with headphones, routers, and game consoles?
+---
 
-</details>
+## 💻 Broken Electronics
 
-<details>
-<summary><strong>🧸 Broken Toys</strong></summary>
+- I need to toss out my broken laptop and TV.
+- What should I do with an old printer and phone?
+- Where can I recycle gaming consoles and remotes?
 
-- Where can I throw away broken toys?
-- What do I do with old puzzles and stuffed animals?
-- Can I recycle action figures and Lego?
-- Where to get rid of dollhouses and board games?
+---
 
-</details>
+## 🧸 Broken Toys
 
-<details>
-<summary><strong>🍌 Expired Food</strong></summary>
+- How do I dispose of old Legos and stuffed toys?
+- Can I recycle damaged puzzles and toy cars?
+- Where do broken dolls and wooden toys go?
 
-- How do I dispose of spoiled food?
-- Can I compost old bananas and moldy bread?
-- Where do I throw away expired meat and dairy?
-- What bin do fruit scraps and leftovers go in?
+---
 
-</details>
+## 🍌 Expired Food
 
-<details>
-<summary><strong>🥃 Glass Bottles</strong></summary>
+- What bin do rotten bananas and spoiled milk go in?
+- Where can I compost leftovers and moldy bread?
+- How do I dispose of expired meat and yogurt?
 
-- Where can I recycle wine bottles?
-- What do I do with empty jars and olive oil bottles?
-- Can I throw out beer bottles in the glass bin?
-- Are glass sauce containers recyclable?
+---
 
-</details>
+## 🥃 Glass Bottles
 
-<details>
-<summary><strong>💡 Light Bulbs</strong></summary>
+- Where do I throw out wine bottles and mason jars?
+- Can I recycle empty glass jars and sauce bottles?
+- What do I do with beer and kombucha bottles?
 
-- How do I dispose of old light bulbs?
-- What do I do with used CFL and LED bulbs?
-- Can I recycle halogen tubes and fluorescent lights?
+---
 
-</details>
+## 💡 Light Bulbs
 
-<details>
-<summary><strong>🎨 Paint Cans</strong></summary>
+- Can I recycle used CFLs and LED bulbs?
+- How do I dispose of fluorescent tubes?
+- What to do with broken halogen and smart bulbs?
 
-- How do I throw away paint cans?
+---
+
+## 🎨 Paint Cans
+
+- Where do I dispose of latex paint and empty cans?
 - What do I do with leftover oil-based paint?
-- Can I recycle paint buckets and primer?
-- Where to dispose of empty latex paint containers?
+- Can I recycle stained buckets and dried-up paint?
 
-</details>
+---
+
+## 🧽 Used Sponges
+
+- How do I dispose of old kitchen sponges?
+- What to do with dirty dish scrubbers?
+- Can I recycle worn-out cellulose pads?
+
+---
+
+## 📦 Packing Peanuts
+
+- Where can I drop off foam peanuts?
+- What do I do with biodegradable packing filler?
+- Can I recycle air pillows and box stuffing?
+
+---
+
+## 💄 Expired Makeup
+
+- How do I dispose of old mascara and lipstick?
+- What to do with broken foundation and eyeshadow?
+- Where can I recycle cosmetic containers?
+
+---
+
+## 🎈 Balloons
+
+- Where do I throw out party balloons?
+- Can I recycle deflated helium and foil balloons?
+- What to do with balloon ribbons and clips?
+
+---
+
+## 🍕 Pizza Boxes
+
+- How do I compost greasy pizza boxes?
+- Can I recycle leftover pizza cartons?
+- Where do stained cardboard food boxes go?
+
+---
+
+## 🪒 Disposable Razors
+
+- Where can I toss used razors and blades?
+- How do I dispose of a broken razor handle?
+- Can I recycle plastic safety razors?
+
+---
+
+## ☕ Coffee Pods
+
+- Can I recycle Keurig or Nespresso pods?
+- What do I do with used coffee capsules?
+- How to dispose of single-use coffee discs?
+
+---
+
+## 🧻 Toilet Paper Rolls
+
+- Are toilet paper rolls recyclable?
+- Where to throw out cardboard tubes from toilet paper?
+- Can I compost paper towel cores?
+
+---
+
+## 🔌 Phone Chargers
+
+- What should I do with a broken iPhone charger?
+- Can I recycle USB-C cables and wall bricks?
+- Where to dispose of tangled charging cords?
+
+---
+
+## 🕯️ Used Candles
+
+- How do I throw out old candle jars and tins?
+- Can I recycle wax melts and burned candles?
+- What to do with leftover scented candle bits?
+
+---
+
+## 🥫 Aluminum Cans
+
+- Where can I recycle soda cans and energy drinks?
+- Are beer cans and juice tins refundable?
+- What to do with crushed aluminum cans?
+
+---
+
+## 🥤 Plastic Bottles
+
+- What bin do plastic water bottles go in?
+- Can I return juice and pop bottles?
+- How to dispose of empty milk jugs and soda bottles?
+
+---
+
+## 🧰 Copper Wires
+
+- Where can I throw away copper wires?
+- Can I recycle stripped power cables?
+- What do I do with scrap copper cords?
+
+---
 
 > 💡 *Note:* If none of the keywords match, the chatbot should return the "Invalid Subject" response.
