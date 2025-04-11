@@ -13,6 +13,8 @@ import {
 } from "./utils";
 import TextInput from "@/Components/TextInput";
 import Select from "@/Components/Select";
+import Button from "@/Components/Button";
+import { useNavigate } from "react-router-dom";
 
 function MetalDisposal() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
@@ -22,6 +24,7 @@ function MetalDisposal() {
   const [selectedMetal, setSelectedMetal] = useState<string | undefined>(
     METAL_TYPES[0].value
   );
+  const navigate = useNavigate();
 
   const handlePostalCodeChange = (input: string) => {
     const cleanedInput = input.toUpperCase().replace(/[^A-Z0-9]/g, "");
@@ -71,6 +74,15 @@ function MetalDisposal() {
             <h1>Metal Recycling</h1>
             <p>Recycle your metal for cash.</p>
           </div>
+          <FlexRow style={{ flex: "none", padding: "0px", justifyContent: "flex-start" }}>
+            <Button
+              onClick={() => navigate("/item/copperwires")}
+              dark={false}
+              containerStyle={{maxWidth: "40%"}}
+            >
+              Copper Wires
+            </Button>
+          </FlexRow>
         </Block>
       </FlexRow>
       <FlexRow>
