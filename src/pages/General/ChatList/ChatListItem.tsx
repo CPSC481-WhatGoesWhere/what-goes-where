@@ -1,6 +1,7 @@
 // ChatListItem.tsx
 
 import React, { ReactNode } from "react";
+import { useNavigate } from "react-router-dom"; // Added import
 import styles from "./ChatList.module.css";
 import Button from "@/Components/Button";
 
@@ -12,6 +13,8 @@ interface ChatListItemProps {
 }
 
 const ChatListItem: React.FC<ChatListItemProps> = ({ children, side, navigationPath, buttonName }) => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
   // If children is a string, assume it contains HTML and render accordingly.
   if (typeof children === "string") {
     return (
@@ -25,7 +28,7 @@ const ChatListItem: React.FC<ChatListItemProps> = ({ children, side, navigationP
           {navigationPath && buttonName && (
             <Button
               dark={false}
-              onClick={() => window.location.href = navigationPath}
+              onClick={() => navigate(navigationPath)} // Updated to use navigate
               containerStyle={{ marginTop: "10px" }}
             >
               {buttonName}
@@ -48,7 +51,7 @@ const ChatListItem: React.FC<ChatListItemProps> = ({ children, side, navigationP
         {navigationPath && buttonName && (
           <Button
             dark={true}
-            onClick={() => window.location.href = navigationPath}
+            onClick={() => navigate(navigationPath)} // Updated to use navigate
             containerStyle={{ marginTop: "10px" }}
           >
             {buttonName}
