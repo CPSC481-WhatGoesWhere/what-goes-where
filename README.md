@@ -1,6 +1,25 @@
 # What Goes Where
 
-Project description
+Project description:
+Our group’s project; “What Goes Where”, and outlines the final vertical prototype. This project is a redesign of the City of Calgary’s “What Goes Where” website and is designed to help users find out information about disposal practices for different materials.
+
+Our Group:
+Jean-Nicolas Rouette
+Email: jeannicolas.rouette@ucalgary.ca
+UCID: 30121189
+
+Dimitar Janevski
+Email: dimitar.janevski@ucalgary.ca
+UCID: 30115038
+
+Caleb Melin
+Email: caleb.melin@ucalgary.ca
+UCID: 30177750
+
+Talha Siddiqui
+Email: muhammadtalha.siddiq@ucalgary.ca
+UCID: 30113909
+
 
 ## Getting started
 
