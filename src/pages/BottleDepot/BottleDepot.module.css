@@ -25,3 +25,20 @@
   max-width: 500px;
 }
 
+.itemCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: var(--spacing-md);
+  align-items: center;
+  background-color: var(--color-card-background);
+  border-radius: var(--border-radius-xxxl);
+  box-shadow: var(--box-shadow);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.itemCard:hover {
+  background-color: var(--color-background-outlet);
+}
