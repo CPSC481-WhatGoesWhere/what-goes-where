@@ -72,7 +72,11 @@ function MetalDisposal() {
         <Block>
           <div className={styles.container}>
             <h1>Metal Recycling</h1>
-            <p>Recycle your metal for cash.</p>
+            <p>
+              Find depots to recycle your metal for cash. <br/>Enter your postal code, 
+              select a metal type, and view nearby locations. <br/>Click below to learn 
+              how to recycle copper wires properly.
+            </p>
           </div>
           <FlexRow style={{ flex: "none", padding: "0px", justifyContent: "flex-start" }}>
             <Button
