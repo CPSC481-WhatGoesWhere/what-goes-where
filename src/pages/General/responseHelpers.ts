@@ -1,123 +1,146 @@
 import { CHAT_ITEMS } from "@/pages/General/constants";
 
-export const getResponseMessage = (question: string): { message: string, navigationPath: string | null, buttonName: string | null } => {
-  // Preprocess the question: convert to lowercase and remove punctuation
-  const lowerCaseQuestion = question.toLowerCase().replace(/[.,!?;:]/g, " ");
+const stopwords = new Set([
+  "where", "can", "i", "how", "do", "you", "the", "a", "an", "to", "it", "is", "my", "of", "for", "me", "we", "on"
+]);
 
-  // Define keyword groups with expanded and detailed keywords
-  const keywordGroups = [
-    {
-      keywords: [
-        "bottle", "bottles", "can", "cans", "depot", "milk", "juice", "soda", "pop", "beer", "lager", "ale",
-        "wine", "liquor", "spirit", "vodka", "rum", "cooler", "recyclebin"
-      ],
-      responseId: "BottleDepot"
-    },
-    {
-      keywords: [
-        "clothes", "clothing", "shirt", "shirts", "pant", "pants", "jacket", "jackets", "sweater", "sweaters",
-        "shoes", "boots", "socks", "hat", "hats", "scarf", "scarves", "belt", "belts", "glove", "gloves",
-        "underwear", "lingerie", "uniform", "costume", "thrift", "goodwill", "donate", "donation", "outerwear",
-        "suit", "suits", "dress", "dresses", "blazer", "blouse", "activewear", "workwear"
-      ],
-      responseId: "ClothingDonation"
-    },
-    {
-      keywords: [
-        "metal", "metals", "aluminum", "copper", "steel", "iron", "brass", "zinc", "tin", "nickel", "lead",
-        "bolt", "screw", "nail", "washer", "hinge", "bracket", "pipe", "pipes", "rod", "rods", "wire", "mesh",
-        "grate", "bar", "bars", "scrap", "frame", "coil", "spring", "plate", "rail", "rebar"
-      ],
-      responseId: "MetalRecycling"
-    },
-    {
-      keywords: [
-        "junk", "sofa", "couch", "mattress", "carpet", "rug", "table", "dresser", "cabinet", "wardrobe", "bed",
-        "frame", "wood", "chair", "cushion", "debris", "appliance", "microwave", "oven", "sink", "toilet",
-        "countertop", "fixture", "garage", "haul", "bulk", "trash"
-      ],
-      responseId: "JunkRemoval"
-    },
-    {
-      keywords: [
-        "battery", "batteries", "lithium", "alkaline", "nickel", "cadmium", "leadacid", "button", "coin", "aaa",
-        "aa", "c", "d", "rechargeable", "cr2032", "cell", "energizer", "duracell"
-      ],
-      responseId: "BatteryDisposal"
-    },
-    {
-      keywords: [
-        "plastic", "plastics", "bag", "bags", "wrap", "film", "ziplock", "cling", "grocerybag", "shoppingbag",
-        "straw", "straws", "wrapper", "wrappers", "saran", "polybag", "liner", "softplastic"
-      ],
-      responseId: "PlasticRecycling"
-    },
-    {
-      keywords: [
-        "electronics", "electronic", "ewaste", "laptop", "laptops", "tablet", "tablets", "phone", "phones", "cellphone",
-        "monitor", "monitors", "tv", "television", "printer", "printers", "mouse", "keyboard", "charger", "cable",
-        "remote", "headphones", "earbuds", "router", "modem", "console", "controller", "stereo", "camera", "speaker"
-      ],
-      responseId: "BrokenElectronics"
-    },
-    {
-      keywords: [
-        "toy", "toys", "lego", "doll", "dolls", "puzzle", "puzzles", "stuffed", "plush", "boardgame", "playset",
-        "figurine", "truck", "blocks", "actionfigure", "robot", "train", "teddy", "game", "games"
-      ],
-      responseId: "BrokenToys"
-    },
-    {
-      keywords: [
-        "expired", "spoiled", "rotten", "moldy", "leftovers", "foodwaste", "compost", "scraps", "perishables", 
-        "banana", "apple", "lettuce", "bread", "fruit", "vegetable", "greens", "meat", "dairy", "soup"
-      ],
-      responseId: "ExpiredFood"
-    },
-    {
-      keywords: [
-        "glass", "jar", "jars", "wine", "beer", "pickle", "mason", "clear", "green", "amber", "bottle", "vial",
-        "olive", "sauce", "jelly", "preserve", "recyclableglass", "glasscontainer"
-      ],
-      responseId: "GlassBottles"
-    },
-    {
-      keywords: [
-        "lightbulb", "bulb", "bulbs", "lamp", "fluorescent", "cfl", "led", "halogen", "tube", "tubelight",
-        "incandescent", "spotlight", "headlight", "bulbtube", "neon", "lightfixture"
-      ],
-      responseId: "LightBulbs"
-    },
-    {
-      keywords: [
-        "paint", "paintcan", "paintcans", "bucket", "latex", "oilbased", "primer", "stain", "varnish", "coating",
-        "gloss", "matte", "enamel", "leftoverpaint", "paintbin"
-      ],
-      responseId: "PaintCans"
-    },
-    {
-      keywords: [
-        "plastic", "plastics", "bag", "bags", "wrap", "film", "ziplock", "cling", "grocerybag", "shoppingbag",
-        "straw", "straws", "wrapper", "wrappers", "saran", "polybag", "liner", "softplastic"
-      ],
-      responseId: "PlasticBagRecycling"
-    }
-    
-  ];
+const tokenize = (text: string): string[] => {
+  return text
+    .toLowerCase()
+    .replace(/[.,!?;:]/g, " ")
+    .split(/\s+/)
+    .filter(word => word && !stopwords.has(word));
+};
 
-  // Check each group for matching keywords
+const keywordGroups = [
+  {
+    keywords: [
+      "bottle", "bottles", "cans", "tin", "drink", "drinks", "pop", "soda", "juice", "beer", "lager", "ale",
+      "wine", "liquor", "cooler", "vodka", "rum", "alcohol", "recyclable", "deposit", "depot", "milk jug", "juicebox", 
+      "tetrapak", "recyclebin", "beverage", "beverages", "return"
+    ],
+    responseId: "BottleDepot"
+  },
+  {
+    keywords: [
+      "clothes", "clothing", "clothe", "cloths", "shirt", "shirts", "tshirt", "tshirts", "pant", "pants", "jeans", 
+      "jacket", "jackets", "sweater", "sweaters", "hoodie", "hoodies", "shoes", "shoe", "boots", "socks", "sock",
+      "hat", "hats", "scarf", "scarves", "belt", "belts", "glove", "gloves", "underwear", "lingerie", "uniform", 
+      "costume", "thrift", "thriftstore", "goodwill", "donate", "donation", "donations", "outerwear", "suit", 
+      "suits", "dress", "dresses", "blazer", "blouse", "activewear", "workwear", "clothing bin", "clothingbank"
+    ],
+    responseId: "ClothingDonation"
+  },
+  {
+    keywords: [
+      "metal", "metals", "aluminum", "copper", "steel", "iron", "brass", "zinc", "tin", "nickel", "lead", "scrap", 
+      "scrapmetal", "bolt", "bolts", "screw", "screws", "nail", "nails", "washer", "washers", "hinge", "bracket", 
+      "pipe", "pipes", "rod", "rods", "wire", "wires", "mesh", "grate", "bar", "bars", "coil", "spring", "plate", 
+      "rail", "rebar", "metaljunk", "metalframe", "metalparts"
+    ],
+    responseId: "MetalRecycling"
+  },
+  {
+    keywords: [
+      "junk", "garbage", "trash", "sofa", "couch", "mattress", "mattresses", "carpet", "rugs", "rug", "table", 
+      "dresser", "cabinet", "wardrobe", "bed", "beds", "frame", "bedframe", "wood", "furniture", "chair", 
+      "chairs", "cushion", "debris", "bulk", "haul", "microwave", "oven", "appliance", "appliances", "sink", 
+      "toilet", "countertop", "fixture", "garage", "junkpile", "garbagedump", "furnitureremoval"
+    ],
+    responseId: "JunkRemoval"
+  },
+  {
+    keywords: [
+      "battery", "batteries", "rechargeable", "lithium", "alkaline", "nickel", "cadmium", "leadacid", "lead-acid", 
+      "button", "coin", "cell", "powercell", "aaa", "aa", "c", "d", "cr2032", "duracell", "energizer", "watchbattery", 
+      "camera battery", "hazardous", "dispose battery", "batterybin"
+    ],
+    responseId: "BatteryDisposal"
+  },
+  {
+    keywords: [
+      "plastic", "plastics", "plastic bag", "plastic bags", "bag", "bags", "wrap", "film", "clingwrap", "cling", 
+      "ziplock", "zip lock", "ziploc", "grocerybag", "shoppingbag", "shopping bag", "grocery bag", "straw", 
+      "straws", "wrapper", "wrappers", "saran", "polybag", "liner", "softplastic", "soft plastic", "plasticwrap"
+    ],
+    responseId: "PlasticBagRecycling"
+  },
+  {
+    keywords: [
+      "electronics", "electronic", "ewaste", "e-waste", "laptop", "laptops", "tablet", "tablets", "phone", "phones", 
+      "cellphone", "mobile", "monitor", "monitors", "tv", "television", "printer", "printers", "mouse", "keyboard", 
+      "charger", "cable", "cables", "remote", "headphones", "earbuds", "router", "modem", "console", "controller", 
+      "stereo", "camera", "speakers", "speakerset", "electronics bin", "techjunk", "device"
+    ],
+    responseId: "BrokenElectronics"
+  },
+  {
+    keywords: [
+      "toy", "toys", "lego", "doll", "dolls", "actionfigure", "action figure", "puzzle", "puzzles", "stuffed", 
+      "plush", "teddy", "teddybear", "boardgame", "boardgames", "playset", "figurine", "figurines", "truck", 
+      "blocks", "robot", "train", "game", "games", "toyparts", "toypiece", "broken toy"
+    ],
+    responseId: "BrokenToys"
+  },
+  {
+    keywords: [
+      "expired", "spoiled", "rotten", "moldy", "leftover", "leftovers", "foodwaste", "compost", "scraps", 
+      "perishable", "perishables", "banana", "apple", "fruit", "vegetable", "veggies", "lettuce", "meat", 
+      "dairy", "cheese", "milk", "bread", "soup", "foodtrash", "organic", "organics"
+    ],
+    responseId: "ExpiredFood"
+  },
+  {
+    keywords: [
+      "glass", "glassbottle", "glass bottle", "glass bottles", "bottle", "bottles", "jar", "jars", "wine", 
+      "beer", "pickle", "mason", "olive", "clear", "green", "amber", "glasscontainer", "glass containers", 
+      "sauce", "jelly", "preserve", "vial", "recyclableglass"
+    ],
+    responseId: "GlassBottles"
+  },
+  {
+    keywords: [
+      "lightbulb", "light bulb", "bulb", "bulbs", "lamp", "lamps", "fluorescent", "cfl", "led", "halogen", "tube", 
+      "tubelight", "tubebulb", "incandescent", "spotlight", "headlight", "bulbtube", "neon", "lightfixture", 
+      "light fixture", "bulb disposal"
+    ],
+    responseId: "LightBulbs"
+  },
+  {
+    keywords: [
+      "paint", "paintcan", "paint can", "paint cans", "paintcans", "bucket", "latex", "oilbased", "oil-based", 
+      "primer", "stain", "varnish", "coating", "gloss", "matte", "enamel", "leftoverpaint", "leftover paint", 
+      "old paint", "paintbin"
+    ],
+    responseId: "PaintCans"
+  }
+];
+
+
+export const getResponseMessage = (
+  question: string
+): { message: string; navigationPath: string | null; buttonName: string | null } => {
+  const tokens = tokenize(question);
+
   for (const group of keywordGroups) {
-    if (group.keywords.some((keyword) => lowerCaseQuestion.includes(` ${keyword} `) || lowerCaseQuestion.startsWith(keyword) || lowerCaseQuestion.endsWith(keyword))) {
+    if (tokens.some((token) => group.keywords.includes(token))) {
       const selectedItem = CHAT_ITEMS.find((item) => item.id === group.responseId);
-      return selectedItem 
-        ? { message: selectedItem.message, navigationPath: selectedItem.navigationPath, buttonName: selectedItem.buttonName } 
+      return selectedItem
+        ? {
+            message: selectedItem.message,
+            navigationPath: selectedItem.navigationPath,
+            buttonName: selectedItem.buttonName,
+          }
         : { message: "", navigationPath: null, buttonName: null };
     }
   }
 
-  // Default response if no keywords match
   const defaultItem = CHAT_ITEMS.find((item) => item.id === "InvalidSubject");
-  return defaultItem 
-    ? { message: defaultItem.message, navigationPath: defaultItem.navigationPath, buttonName: defaultItem.buttonName } 
+  return defaultItem
+    ? {
+        message: defaultItem.message,
+        navigationPath: defaultItem.navigationPath,
+        buttonName: defaultItem.buttonName,
+      }
     : { message: "", navigationPath: null, buttonName: null };
 };
