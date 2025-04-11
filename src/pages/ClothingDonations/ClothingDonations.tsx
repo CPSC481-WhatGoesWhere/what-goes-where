@@ -8,6 +8,7 @@ import FlexBackGround from "@/Components/FlexBackGround";
 import Block from "@/Components/Block";
 import Button from "@/Components/Button";
 import { useNavigate } from "react-router-dom";
+import ScrollList from "@/Components/ScrollList";
 
 function ClothingDonations() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
@@ -15,37 +16,45 @@ function ClothingDonations() {
   );
   const navigate = useNavigate();
   return (
-    <FlexBackGround style={{ justifyContent: "flex-start", overflowY: "auto" }}>
-      <FlexRow style={{ flex: "none" }}>
-        <Block>
-          <div className={styles.container}>
-            <h1>Clothing Donations</h1>
-            <p>
-              Fast fashion has led to massive textile waste and pollution, but
-              small actions like donating clothes and shopping second-hand can
-              make a big difference.<br/> Learn more about disposing of old clothes by clicking the button below.
-            </p>
-          </div>
-          <FlexRow style={{ flex: "none", padding: "0px", justifyContent: "flex-start" }}>
-            <Button
-              onClick={() => navigate("/item/oldclothes")}
-              dark={false}
-              containerStyle={{maxWidth: "40%"}}
-            >
-              Copper Wires
-            </Button>
-          </FlexRow>
-        </Block>
-      </FlexRow>
-      <FlexRow>
-        <Block style={{ height: "100%" }}>
-          <LocationsMap
-            locations={CLOTHING_DONATION_CENTERS}
-            selectedLocation={selectedLocation}
-            setSelectedLocation={setSelectedLocation}
-          />
-        </Block>
-      </FlexRow>
+    <FlexBackGround
+      style={{ gap: "var(--spacing-none)", padding: "var(--spacing-none)" }}
+    >
+      <ScrollList
+        style={{ maxWidth: "100%" }}
+        bottomFade={false}
+        topFade={true}
+      >
+        <FlexRow style={{ flex: "none" }}>
+          <Block>
+            <div className={styles.container}>
+              <h1>Clothing Donations</h1>
+              <p>
+                Fast fashion has led to massive textile waste and pollution, but
+                small actions like donating clothes and shopping second-hand can
+                make a big difference.<br/> Learn more about disposing of old clothes by clicking the button below.
+              </p>
+            </div>
+            <FlexRow style={{ flex: "none", padding: "0px", justifyContent: "flex-start" }}>
+              <Button
+                onClick={() => navigate("/item/oldclothes")}
+                dark={false}
+                containerStyle={{maxWidth: "40%"}}
+              >
+                Copper Wires
+              </Button>
+            </FlexRow>
+          </Block>
+        </FlexRow>
+        <FlexRow>
+          <Block style={{ height: "100%" }}>
+            <LocationsMap
+              locations={CLOTHING_DONATION_CENTERS}
+              selectedLocation={selectedLocation}
+              setSelectedLocation={setSelectedLocation}
+            />
+          </Block>
+        </FlexRow>
+      </ScrollList>
     </FlexBackGround>
   );
 }
