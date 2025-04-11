@@ -29,32 +29,33 @@ function MetalDisposal() {
 
   const handlePostalCodeChange = (input: string) => {
     const cleanedInput = input.toUpperCase().replace(/[^A-Z0-9]/g, "");
-    let formatted = "";
+    let rawFormatted = "";
 
-    for (let i = 0; i < cleanedInput.length && i < 6; i++) {
+    for (let i = 0; i < cleanedInput.length && rawFormatted.length < 6; i++) {
       const char = cleanedInput[i];
 
       if (i % 2 === 0) {
-        // Positions 0, 2, 4: letters only
+        // Expecting a letter
         if (/[A-Z]/.test(char)) {
-          formatted += char;
+          rawFormatted += char;
         } else {
           break;
         }
       } else {
-        // Positions 1, 3, 5: digits only
+        // Expecting a digit
         if (/[0-9]/.test(char)) {
-          formatted += char;
+          rawFormatted += char;
         } else {
           break;
         }
       }
-
-      // Automatically insert space after third character
-      if (formatted.length === 3) {
-        formatted += " ";
-      }
     }
+
+    // Insert space only if there are more than 3 characters
+    const formatted =
+      rawFormatted.length > 3
+        ? rawFormatted.slice(0, 3) + " " + rawFormatted.slice(3)
+        : rawFormatted;
 
     setPostalCode(formatted);
   };
@@ -81,16 +82,23 @@ function MetalDisposal() {
             <div className={styles.container}>
               <h1>Metal Recycling</h1>
               <p>
-                Find depots to recycle your metal for cash. <br/>Enter your postal code, 
-                select a metal type, and view nearby locations. <br/>Click below to learn 
-                how to recycle copper wires properly.
+                Find depots to recycle your metal for cash. <br />
+                Enter your postal code, select a metal type, and view nearby
+                locations. <br />
+                Click below to learn how to recycle copper wires properly.
               </p>
             </div>
-            <FlexRow style={{ flex: "none", padding: "0px", justifyContent: "flex-start" }}>
+            <FlexRow
+              style={{
+                flex: "none",
+                padding: "0px",
+                justifyContent: "flex-start",
+              }}
+            >
               <Button
                 onClick={() => navigate("/item/copperwires")}
                 dark={false}
-                containerStyle={{maxWidth: "40%"}}
+                containerStyle={{ maxWidth: "40%" }}
               >
                 Copper Wires
               </Button>
@@ -103,8 +111,8 @@ function MetalDisposal() {
               <h4>Metal Recycling Depots</h4>
               <FlexRow style={{ justifyContent: "flex-end", paddingLeft: 0 }}>
                 <span>
-                  Enter your postal code to find closest depots that will pay you
-                  the most:
+                  Enter your postal code to find closest depots that will pay
+                  you the most:
                 </span>
                 <div style={{ width: "200px" }}>
                   <TextInput
@@ -144,7 +152,6 @@ function MetalDisposal() {
             />
           </Block>
         </FlexRow>
-
       </ScrollList>
     </FlexBackGround>
   );
